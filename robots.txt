@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://vonisok.github.io/vonsIT/sitemap.xml
+Sitemap: https://vonsit.com/sitemap.xml
 
 # Allow all search engines
 User-agent: Googlebot
@@ -18,4 +18,4 @@ Allow: /
 Crawl-delay: 1
 
 # Host preference
-Host: https://vonisok.github.io 
+Host: https://vonsit.com 
