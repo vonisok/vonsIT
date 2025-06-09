@@ -28,21 +28,31 @@ document.addEventListener('keydown', function(event) {
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Get form data
-    const formData = new FormData(this);
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const project = this.querySelector('input[type="text"]:nth-of-type(2)').value;
-    const message = this.querySelector('textarea').value;
+    // Get form data with proper selectors
+    const name = this.querySelector('input[name="name"]').value.trim();
+    const email = this.querySelector('input[name="email"]').value.trim();
+    const project = this.querySelector('input[name="project-type"]').value.trim();
+    const message = this.querySelector('textarea[name="requirements"]').value.trim();
     
-    // Simple validation
+    // Enhanced validation
     if (!name || !email) {
         alert('Please fill in all required fields (Name and Email)');
         return;
     }
     
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+    
+    // Basic sanitization (prevent basic XSS in alert)
+    const sanitizedName = name.replace(/[<>]/g, '');
+    const sanitizedEmail = email.replace(/[<>]/g, '');
+    
     // Simulate form submission
-    alert(`Thank you, ${name}! vonsIT has received your quote request and will get back to you within 24 hours at ${email}.`);
+    alert(`Thank you, ${sanitizedName}! vonsIT has received your quote request and will get back to you within 24 hours at ${sanitizedEmail}.`);
     
     // Reset form and close modal
     this.reset();
