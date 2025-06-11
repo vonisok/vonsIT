@@ -28,36 +28,89 @@ document.addEventListener('keydown', function(event) {
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
+    const form = this;
+    const messagesDiv = document.getElementById('form-messages');
+    const submitBtn = document.getElementById('submit-btn');
+    
     // Get form data with proper selectors
-    const name = this.querySelector('input[name="name"]').value.trim();
-    const email = this.querySelector('input[name="email"]').value.trim();
-    const project = this.querySelector('input[name="project-type"]').value.trim();
-    const message = this.querySelector('textarea[name="requirements"]').value.trim();
+    const name = form.querySelector('input[name="name"]').value.trim();
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const project = form.querySelector('input[name="project-type"]').value.trim();
+    const message = form.querySelector('textarea[name="requirements"]').value.trim();
     
     // Enhanced validation
     if (!name || !email) {
-        alert('Please fill in all required fields (Name and Email)');
+        showMessage('Please fill in all required fields (Name and Email)', 'error');
         return;
     }
     
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
+        showMessage('Please enter a valid email address', 'error');
         return;
     }
     
-    // Basic sanitization (prevent basic XSS in alert)
-    const sanitizedName = name.replace(/[<>]/g, '');
-    const sanitizedEmail = email.replace(/[<>]/g, '');
+    // Show loading state
+    showMessage('Sending your request...', 'loading');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
     
-    // Simulate form submission
-    alert(`Thank you, ${sanitizedName}! vonsIT has received your quote request and will get back to you within 24 hours at ${sanitizedEmail}.`);
+    // Prepare form data
+    const formData = {
+        name: name,
+        email: email,
+        project_type: project || 'Not specified',
+        requirements: message || 'No additional requirements specified'
+    };
     
-    // Reset form and close modal
-    this.reset();
-    closeQuoteModal();
+    // Send email using PHP endpoint
+    fetch('/send-quote.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showMessage(data.message, 'success');
+            form.reset();
+            
+            // Close modal after a delay
+            setTimeout(() => {
+                closeQuoteModal();
+            }, 3000);
+        } else {
+            showMessage(data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showMessage('Sorry, there was an error sending your request. Please try again or contact us directly at von@vonsit.com', 'error');
+    })
+    .finally(() => {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Request to vonsIT';
+    });
 });
+
+// Helper function to show messages
+function showMessage(message, type) {
+    const messagesDiv = document.getElementById('form-messages');
+    messagesDiv.textContent = message;
+    messagesDiv.className = `form-messages ${type}`;
+    messagesDiv.style.display = 'block';
+    
+    // Auto-hide error messages after 5 seconds
+    if (type === 'error') {
+        setTimeout(() => {
+            messagesDiv.style.display = 'none';
+        }, 5000);
+    }
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
