@@ -24,6 +24,11 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// Initialize EmailJS
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+})();
+
 // Form submission handling
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -56,63 +61,36 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
     
-    // Prepare form data
-    const formData = {
-        name: name,
-        email: email,
+    // Prepare template parameters for EmailJS
+    const templateParams = {
+        from_name: name,
+        from_email: email,
         project_type: project || 'Not specified',
-        requirements: message || 'No additional requirements specified'
+        message: message || 'No additional requirements specified',
+        to_email: 'von@vonsit.com'
     };
     
-    // Send email using PHP endpoint
-    fetch('./send-quote.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            showMessage(data.message, 'success');
+    // Send email using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            showMessage(`✅ Thank you, ${name}! Your quote request has been sent successfully. We'll get back to you within 24 hours at ${email}.`, 'success');
             form.reset();
             
             // Close modal after a delay
             setTimeout(() => {
                 closeQuoteModal();
             }, 3000);
-        } else {
-            showMessage(data.message, 'error');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        
-        // Fallback for local testing or PHP not available
-        if (error.message.includes('HTTP error') || error.message.includes('Failed to fetch')) {
-            // Simulate successful submission for testing
-            showMessage(`✅ Thank you, ${name}! Your quote request has been received. We'll get back to you within 24 hours at ${email}. (Demo Mode - PHP not available)`, 'success');
-            form.reset();
-            
-            // Close modal after a delay
-            setTimeout(() => {
-                closeQuoteModal();
-            }, 3000);
-        } else {
-            showMessage('Sorry, there was an error sending your request. Please try again or contact us directly at von@vonsit.com', 'error');
-        }
-    })
-    .finally(() => {
-        // Reset button state
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Request to vonsIT';
-    });
+        })
+        .catch(function(error) {
+            console.error('FAILED...', error);
+            showMessage('Email service error - please contact von@vonsit.com directly. (Error Code: EMAILJS-001)', 'error');
+        })
+        .finally(function() {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Request to vonsIT';
+        });
 });
 
 // Helper function to show messages
