@@ -1,0 +1,8 @@
+{
+  "name": "vonsIT",
+  "short_name": "vonsIT",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3B82F6"
+} 

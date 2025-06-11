@@ -102,6 +102,12 @@ style.textContent = `
             margin: 0.5rem 0;
         }
         
+        .nav-menu.active .nav-cta {
+            display: inline-block;
+            text-align: center;
+            margin: 0.5rem auto;
+        }
+        
         .nav {
             position: relative;
         }
@@ -213,11 +219,24 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Add loading animation
+// Tech stack animation handling
+document.addEventListener('DOMContentLoaded', function() {
+    const techItems = document.querySelectorAll('.tech-item');
+    
+    techItems.forEach((item, index) => {
+        const delay = parseFloat(getComputedStyle(item).getPropertyValue('--delay').replace('s', '')) * 1000;
+        const entranceDelay = delay + 800;
+        
+        setTimeout(() => {
+            item.classList.add('loaded');
+        }, entranceDelay);
+    });
+});
+
+// Page loading animation
+document.body.style.opacity = '0';
+
 window.addEventListener('load', function() {
     document.body.style.opacity = '1';
     document.body.style.transition = 'opacity 0.5s ease';
-});
-
-// Initial body opacity
-document.body.style.opacity = '0'; 
+}); 
