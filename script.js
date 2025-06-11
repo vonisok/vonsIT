@@ -26,7 +26,7 @@ document.addEventListener('keydown', function(event) {
 
 // Initialize EmailJS
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    emailjs.init("UqQaBw_B9feqjwjR0"); // Replace with your actual EmailJS public key
 })();
 
 // Form submission handling
@@ -71,7 +71,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     };
     
     // Send email using EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+    emailjs.send('service_hizp1xz', 'template_8tzebgb', templateParams)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
             showMessage(`✅ Thank you, ${name}! Your quote request has been sent successfully. We'll get back to you within 24 hours at ${email}.`, 'success');
