@@ -40,12 +40,16 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     // Get form data with proper selectors
     const name = form.querySelector('input[name="name"]').value.trim();
     const email = form.querySelector('input[name="email"]').value.trim();
-    const project = form.querySelector('input[name="project-type"]').value.trim();
-    const message = form.querySelector('textarea[name="requirements"]').value.trim();
+    const phone = form.querySelector('input[name="phone"]').value.trim();
+    const projectType = form.querySelector('select[name="project-type"]').value.trim();
+    const budgetRange = form.querySelector('select[name="budget-range"]').value.trim();
+    const projectDetails = form.querySelector('textarea[name="project-details"]').value.trim();
+    const referralSource = form.querySelector('input[name="referral-source"]').value.trim();
+    const newsletterOptIn = form.querySelector('input[name="newsletter-opt-in"]').checked;
     
     // Enhanced validation
-    if (!name || !email) {
-        showMessage('Please fill in all required fields (Name and Email)', 'error');
+    if (!name || !email || !projectType || !budgetRange) {
+        showMessage('Please fill in all required fields (marked with *)', 'error');
         return;
     }
     
@@ -65,8 +69,12 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     const templateParams = {
         from_name: name,
         from_email: email,
-        project_type: project || 'Not specified',
-        message: message || 'No additional requirements specified',
+        phone: phone || 'Not provided',
+        project_type: projectType,
+        budget_range: budgetRange,
+        project_details: projectDetails || 'No additional details provided',
+        referral_source: referralSource || 'Not specified',
+        newsletter_opt_in: newsletterOptIn ? 'Yes' : 'No',
         to_email: 'von@vonsit.com'
     };
     
@@ -89,7 +97,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
         .finally(function() {
             // Reset button state
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Request to vonsIT';
+            submitBtn.textContent = 'Get My Custom Quote →';
         });
 });
 

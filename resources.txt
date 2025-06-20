@@ -1,0 +1,37 @@
+    SiteGround – Fast, WordPress-optimized hosting with free SSL and daily backups. (SiteGround Affiliate)
+
+    Elementor Pro – Drag-and-drop builder with theme-building, popup builder, and marketing widgets. (Elementor Affiliate)
+
+    Canva Pro – Fast out-of-the-box templates for social, presentations, and quick client deliverables. (Canva Affiliate)
+
+    Slack – Real-time team chat, file sharing, and 2,000-app integrations. (Slack Affiliate)
+
+    Ahrefs – Best-in-class backlink analysis, keyword research, and site audits. (Ahrefs Affiliate)
+
+    SEMrush – All-around suite for SEO, PPC, content marketing, and competitive intel. (SEMrush Affiliate)
+
+    Google Analytics + GA4 – Free traffic, behavior, and conversion analytics.
+
+    Google Search Console – Monitor indexing, search performance, and fix crawl errors.
+
+    Mailchimp – Easy-to-use email campaigns, automations, and audience segmentation. (Mailchimp Affiliate)
+
+    GitHub – Source control, Issues, Actions CI/CD, and Packages.
+
+    Vercel – Hosting + Serverless Functions with instant previews and edge caching. (Vercel Affiliate)
+
+    Netlify – Static-site hosting + serverless Functions + built-in Forms for Git-driven projects. (Netlify Affiliate)
+
+    Zapier – Connect 5,000+ apps to automate workflows (e.g. form → email → Slack). (Zapier Affiliate)
+
+    OpenAI – GPT-4, embeddings, fine-tuning and chat APIs that power cutting-edge language apps. (OpenAI Affiliate)
+
+    Cursor – AI-driven coding assistant right in your IDE for faster prototyping, refactoring, and documentation. (Cursor Affiliate)
+
+    Anthropic – Claude API delivers safer, high-capacity conversational AI for customer support, summarization, and more. (Anthropic Affiliate)
+
+    Google Flow Video Gen – Google’s AI-powered video generation platform for turning text prompts into polished clips. (Google Affiliate)
+
+    Hugging Face – Community model hub + hosted inference API for everything from text to vision.
+
+    ElevenLabs – State-of-the-art text-to-speech voices with real-time streaming and multilingual support.

@@ -40,15 +40,34 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="/favicon.ico">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
     <link rel="manifest" href="/site.webmanifest">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- EmailJS for GitHub Pages -->
+    <!-- EmailJS CDN -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     
 
     
@@ -69,13 +88,22 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h2>vonsIT</h2>
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <div class="bracket-left">&lt;</div>
+                        <div class="logo-dot"></div>
+                        <div class="bracket-right">/&gt;</div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                    </div>
+                </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#why-us">Why Us</a></li>
+                <li><a href="resources.html">Resources</a></li>
                 <li><a href="javascript:void(0)" onclick="openQuoteModal()" class="nav-cta">Get a Quote</a></li>
             </ul>
             <button class="nav-toggle">☰</button>
@@ -528,7 +556,16 @@
                 <!-- Brand Section -->
                 <div class="footer-brand-section">
                     <div class="footer-logo">
-                        <h3>vonsIT</h3>
+                        <a href="#home" class="logo footer-logo-style">
+                            <div class="logo-icon">
+                                <div class="bracket-left">&lt;</div>
+                                <div class="logo-dot"></div>
+                                <div class="bracket-right">/&gt;</div>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                            </div>
+                        </a>
                         <div class="footer-tagline">Digital Experiences That Perform</div>
                     </div>
                     
@@ -571,10 +608,10 @@
                 <div class="footer-nav-section">
                     <h4 class="footer-nav-title">Quick Links</h4>
                     <nav class="footer-nav-links">
-                        <a href="#home" class="footer-link">Home</a>
                         <a href="#services" class="footer-link">Services</a>
                         <a href="#process" class="footer-link">Process</a>
                         <a href="#why-us" class="footer-link">Why Us</a>
+                        <a href="resources.html" class="footer-link">Resources</a>
                         <a href="javascript:void(0)" onclick="openQuoteModal()" class="footer-link">Get Quote</a>
                     </nav>
                 </div>
@@ -620,17 +657,50 @@
             </p>
             <form id="quoteForm" itemscope itemtype="https://schema.org/ContactForm">
                 <div id="form-messages" class="form-messages"></div>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="project-type" placeholder="Project Type (Website, E-commerce, Web App, etc.)">
-                <textarea name="requirements" placeholder="Tell us about your project requirements..." rows="5"></textarea>
-                <button type="submit" id="submit-btn">Send Request to vonsIT</button>
+                
+                <input type="text" name="name" placeholder="Your Name *" required>
+                
+                <input type="email" name="email" placeholder="Your Email *" required>
+                
+                <input type="tel" name="phone" placeholder="Phone Number (optional)">
+                
+                <select name="project-type" required>
+                    <option value="">Select Project Type *</option>
+                    <option value="New Website">New Website</option>
+                    <option value="Website Redesign">Website Redesign</option>
+                    <option value="E-commerce Store">E-commerce Store</option>
+                    <option value="Web Application">Web Application</option>
+                    <option value="Landing Page">Landing Page</option>
+                    <option value="WordPress Site">WordPress Site</option>
+                    <option value="Brand Identity">Brand Identity</option>
+                    <option value="Website Maintenance">Website Maintenance</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <select name="budget-range" required>
+                    <option value="">Select Budget Range *</option>
+                    <option value="Under $500">Under $500</option>
+                    <option value="$500 - $1,000">$500 - $1,000</option>
+                    <option value="$1,000 - $2,500+">$1,000 - $2,500+</option>
+                </select>
+                
+                <textarea name="project-details" placeholder="Tell us about your project..." rows="4"></textarea>
+                
+                <input type="text" name="referral-source" placeholder="How did you hear about us?">
+                
+                <label class="checkbox-container">
+                    <input type="checkbox" name="newsletter-opt-in">
+                    <span class="checkmark"></span>
+                    <span class="checkbox-text">I'd like to receive updates about web development tips and industry insights (optional)</span>
+                </label>
+                
+                <button type="submit" id="submit-btn">Get My Custom Quote →</button>
             </form>
         </div>
     </div>
 
 
 
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 </body>
 </html> 
