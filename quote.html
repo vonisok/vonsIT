@@ -33,7 +33,10 @@
         .quote-hero {
             min-height: 60vh;
             background: linear-gradient(135deg, #0a0f1c 0%, #1a1d29 50%, #0f172a 100%);
-            padding: 8rem 0 4rem;
+            padding: 6rem 0 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             color: white;
             position: relative;
@@ -73,25 +76,28 @@
         .quote-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
+            width: 100%;
         }
 
         .quote-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             color: white;
+            letter-spacing: -0.02em;
         }
 
         .quote-hero p {
-            font-size: 1.25rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            max-width: 600px;
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            color: #e2e8f0;
+            line-height: 1.7;
+            max-width: 700px;
             margin: 0 auto;
+            font-weight: 400;
         }
 
         .quote-main {
@@ -395,7 +401,7 @@
     <section class="quote-hero">
         <div class="quote-hero-content">
             <h1>Get Your Custom Quote</h1>
-            <p>Tell us about your project and we'll provide a personalized quote within 24 hours. No obligations, just honest pricing for quality work.</p>
+            <p>Straightforward pricing, zero surprises—share your goals and we'll outline timeline, deliverables, and cost within one business day.</p>
         </div>
     </section>
 
