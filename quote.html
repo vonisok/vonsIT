@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Custom Quote | vonsIT - Professional Web Development</title>
+    <meta name="description" content="Get a personalized quote for your web development project. Custom websites, e-commerce, and web applications. Free quotes within 24 hours.">
+    <meta name="keywords" content="web development quote, website cost, custom website price, web design quote, vonsIT quote">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <style>
+        .quote-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1d29 50%, #0f172a 100%);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 40% 60%, rgba(14, 165, 233, 0.1) 0%, transparent 35%);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .quote-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .quote-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .quote-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .quote-hero p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quote-main {
+            padding: 4rem 0 6rem;
+            background: linear-gradient(135deg, #1a1d29 0%, #0f172a 50%, #1e293b 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 30%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 70%, rgba(236, 72, 153, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 45% 80%, rgba(14, 165, 233, 0.05) 0%, transparent 40%);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-form-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.03));
+            pointer-events: none;
+        }
+
+        .quote-form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-form-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-form-header p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-form {
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-form input,
+        .quote-form textarea,
+        .quote-form select {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            border-radius: 12px;
+            padding: 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-form input::placeholder,
+        .quote-form textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .quote-form input:focus,
+        .quote-form textarea:focus,
+        .quote-form select:focus {
+            outline: none;
+            border-color: rgba(99, 102, 241, 0.6);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .quote-form select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+        }
+
+        .quote-form select option {
+            background: #1a1d29;
+            color: white;
+            padding: 0.5rem;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin: 1.5rem 0 2rem 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-container:hover .checkmark {
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .checkmark {
+            background: #6366f1;
+            border-color: #6366f1;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .checkbox-text {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-messages {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .form-messages.success {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .form-messages.error {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .form-messages.loading {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .quote-hero {
+                padding: 6rem 0 3rem;
+                min-height: 50vh;
+            }
+
+            .quote-main {
+                padding: 3rem 0 4rem;
+            }
+
+            .quote-container {
+                padding: 0 1rem;
+            }
+
+            .quote-form-wrapper {
+                padding: 2rem 1.5rem;
+                border-radius: 16px;
+            }
+
+            .quote-form-header h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html#home" class="logo">
+                    <div class="logo-icon">
+                        <div class="bracket-left">&lt;</div>
+                        <div class="logo-dot"></div>
+                        <div class="bracket-right">/&gt;</div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#why-us">Why Us</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <section class="quote-hero">
+        <div class="quote-hero-content">
+            <h1>Get Your Custom Quote</h1>
+            <p>Tell us about your project and we'll provide a personalized quote within 24 hours. No obligations, just honest pricing for quality work.</p>
+        </div>
+    </section>
+
+    <section class="quote-main">
+        <div class="quote-container">
+            <div class="quote-form-wrapper">
+                <div class="quote-form-header">
+                    <h2>Request Your Quote</h2>
+                    <p>Fill out the form below and we'll get back to you with a detailed proposal.</p>
+                </div>
+                
+                <form id="quoteForm" class="quote-form" itemscope itemtype="https://schema.org/ContactForm">
+                    <div id="form-messages" class="form-messages"></div>
+                    
+                    <input type="text" name="name" placeholder="Your Name *" required>
+                    
+                    <input type="email" name="email" placeholder="Your Email *" required>
+                    
+                    <input type="tel" name="phone" placeholder="Phone Number (optional)">
+                    
+                    <select name="project-type" required>
+                        <option value="">Select Project Type *</option>
+                        <option value="New Website">New Website</option>
+                        <option value="Website Redesign">Website Redesign</option>
+                        <option value="E-commerce Store">E-commerce Store</option>
+                        <option value="Web Application">Web Application</option>
+                        <option value="Landing Page">Landing Page</option>
+                        <option value="WordPress Site">WordPress Site</option>
+                        <option value="Brand Identity">Brand Identity</option>
+                        <option value="Website Maintenance">Website Maintenance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    
+                    <select name="budget-range" required>
+                        <option value="">Select Budget Range *</option>
+                        <option value="Under $500">Under $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $2,500+">$1,000 - $2,500+</option>
+                    </select>
+                    
+                    <textarea name="project-details" placeholder="Tell us about your project..." rows="5"></textarea>
+                    
+                    <input type="text" name="referral-source" placeholder="How did you hear about us?">
+                    
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="newsletter-opt-in">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">I'd like to receive updates about web development tips and industry insights (optional)</span>
+                    </label>
+                    
+                    <button type="submit" id="submit-btn" class="submit-button">Get My Custom Quote →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-new">
+        <div class="footer-background">
+            <div class="footer-shapes">
+                <div class="footer-shape footer-shape-1"></div>
+                <div class="footer-shape footer-shape-2"></div>
+                <div class="footer-shape footer-shape-3"></div>
+            </div>
+        </div>
+        
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand-section">
+                    <div class="footer-logo">
+                        <a href="index.html#home" class="logo footer-logo-style">
+                            <div class="logo-icon">
+                                <div class="bracket-left">&lt;</div>
+                                <div class="logo-dot"></div>
+                                <div class="bracket-right">/&gt;</div>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                            </div>
+                        </a>
+                        <div class="footer-tagline">Digital Experiences That Perform</div>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    <polyline points="3.29,7 12,12 20.71,7"/>
+                                    <line x1="12" y1="22" x2="12" y2="12"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Website</span>
+                                <span class="contact-value">vonsIT.com</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item" itemscope itemtype="https://schema.org/ContactPoint">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:von@vonsit.com" class="contact-value contact-link" itemprop="email" rel="noopener">von@vonsit.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-nav-section">
+                    <h4 class="footer-nav-title">Quick Links</h4>
+                    <nav class="footer-nav-links">
+                        <a href="index.html#services" class="footer-link">Services</a>
+                        <a href="index.html#process" class="footer-link">Process</a>
+                        <a href="index.html#why-us" class="footer-link">Why Us</a>
+                        <a href="resources.html" class="footer-link">Resources</a>
+                        <a href="quote.html" class="footer-link">Get Quote</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-cta-section">
+                    <div class="footer-cta-content">
+                        <h4 class="footer-cta-title">Ready to Start?</h4>
+                        <p class="footer-cta-subtitle">Let's build something amazing together</p>
+                        <a href="quote.html" class="footer-cta-button">
+                            <span>Request Your Quote</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-copyright">
+                    <span>&copy; 2024 vonsIT. All rights reserved.</span>
+                    <div class="footer-status">
+                        <div class="status-indicator"></div>
+                        <span>Available for New Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.min.js"></script>
+</body>
+</html> 
