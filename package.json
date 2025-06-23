@@ -18,12 +18,6 @@
   ],
   "author": "vonsIT",
   "license": "MIT",
-  "dependencies": {
-    "nodemailer": "^6.9.7"
-  },
-  "devDependencies": {
-    "netlify-cli": "^17.10.1"
-  },
   "engines": {
     "node": ">=18.0.0"
   },
@@ -31,8 +25,5 @@
     "type": "git",
     "url": "https://github.com/vonisok/vonsIT.git"
   },
-  "homepage": "https://vonsit.com",
-  "netlify": {
-    "functions": "netlify/functions"
-  }
+  "homepage": "https://vonsit.com"
 } 

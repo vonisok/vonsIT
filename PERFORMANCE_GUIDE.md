@@ -14,7 +14,7 @@
 
 ### 3. CDN & Resource Optimization
 - **Google Fonts** - Using optimized font loading with display=swap
-- **EmailJS** - Updated to latest CDN version
+- **Netlify Forms** - Built-in form processing with zero external dependencies
 - **DNS Prefetching** - Added for external domains (fonts.googleapis.com, fonts.gstatic.com, cdn.jsdelivr.net)
 - **Resource Hints** - Preconnect and dns-prefetch for faster loading
 
@@ -183,7 +183,7 @@ Target performance scores:
 
 ### Regular Tasks:
 1. **Monitor performance** monthly using PageSpeed Insights
-2. **Update dependencies** (EmailJS, etc.) quarterly
+2. **Update dependencies** (Google Fonts, CDN resources) quarterly
 3. **Review .htaccess** rules when server changes occur
 4. **Test error pages** to ensure they work correctly
 5. **Audit unused CSS/JS** and remove as needed
