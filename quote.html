@@ -413,8 +413,14 @@
                     <p>Fill out the form below and we'll get back to you with a detailed proposal.</p>
                 </div>
                 
-                <form id="quoteForm" class="quote-form" itemscope itemtype="https://schema.org/ContactForm">
+                <form id="quoteForm" class="quote-form" itemscope itemtype="https://schema.org/ContactForm" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <div id="form-messages" class="form-messages"></div>
+                    
+                    <!-- Hidden honeypot field for spam protection -->
+                    <input type="hidden" name="bot-field" />
+                    
+                    <!-- Hidden field to identify form -->
+                    <input type="hidden" name="form-name" value="quote-request" />
                     
                     <input type="text" name="name" placeholder="Your Name *" required>
                     
@@ -447,7 +453,7 @@
                     <input type="text" name="referral-source" placeholder="How did you hear about us?">
                     
                     <label class="checkbox-container">
-                        <input type="checkbox" name="newsletter-opt-in">
+                        <input type="checkbox" name="newsletter-opt-in" value="yes">
                         <span class="checkmark"></span>
                         <span class="checkbox-text">I'd like to receive updates about web development tips and industry insights (optional)</span>
                     </label>
@@ -560,6 +566,6 @@
         </div>
     </footer>
 
-    <script src="script.min.js"></script>
+    <script src="script-netlify.js"></script>
 </body>
 </html> 

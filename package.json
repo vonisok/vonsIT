@@ -1,0 +1,38 @@
+{
+  "name": "vonsit-website",
+  "version": "1.0.0",
+  "description": "vonsIT Professional Web Development Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified'",
+    "netlify-dev": "netlify dev"
+  },
+  "keywords": [
+    "web-development",
+    "website",
+    "netlify",
+    "contact-form",
+    "gmail-smtp"
+  ],
+  "author": "vonsIT",
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.10.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vonisok/vonsIT.git"
+  },
+  "homepage": "https://vonsit.com",
+  "netlify": {
+    "functions": "netlify/functions"
+  }
+} 

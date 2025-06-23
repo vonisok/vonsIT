@@ -1,0 +1,102 @@
+# Netlify Configuration for vonsIT Website
+# Optimized for form handling with Gmail SMTP
+
+[build]
+  # Publish directory (if you have a build process)
+  publish = "."
+  
+  # Build command (if needed)
+  # command = "npm run build"
+
+# Form handling configuration
+[[plugins]]
+  package = "@netlify/plugin-form-submissions"
+
+# Redirect and rewrite rules
+[[redirects]]
+  # Handle SPA routing (if needed in the future)
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  
+  # Redirect old URLs if any
+  # from = "/old-page"
+  # to = "/new-page"
+  # status = 301
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    
+    # Content Security Policy
+    Content-Security-Policy = '''
+      default-src 'self'; 
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com; 
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+      font-src 'self' https://fonts.gstatic.com; 
+      img-src 'self' data: https: blob:; 
+      connect-src 'self' https://api.emailjs.com https://www.google-analytics.com; 
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+    '''
+
+# Cache static assets
+[[headers]]
+  for = "/favicon/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML caching
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Form submission notifications
+# Note: Configure these in Netlify Dashboard under Site Settings > Forms > Form notifications
+# Email notifications will use your configured Gmail SMTP
+
+# Environment variables for functions (if using Netlify Functions)
+# Set these in Netlify Dashboard under Site Settings > Environment variables
+# GMAIL_USER = your Gmail address
+# GMAIL_PASS = your Gmail app password
+# SMTP_HOST = smtp.gmail.com
+# SMTP_PORT = 587 
