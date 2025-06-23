@@ -65,17 +65,71 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
     
-    // Prepare template parameters for EmailJS
+    // Get current timestamp
+    const currentDate = new Date().toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+    });
+    
+    // Create well-formatted email content
+    const emailSubject = `[QUOTE REQUEST] ${projectType} - ${budgetRange} | ${name}`;
+    const emailBody = `
+🎯 NEW QUOTE REQUEST FROM VONSIT.COM
+
+📅 SUBMITTED: ${currentDate}
+
+👤 CLIENT INFORMATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Name: ${name}
+• Email: ${email}
+• Phone: ${phone || 'Not provided'}
+
+💼 PROJECT DETAILS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Project Type: ${projectType}
+• Budget Range: ${budgetRange}
+• How They Found Us: ${referralSource || 'Not specified'}
+• Newsletter Opt-in: ${newsletterOptIn ? 'Yes' : 'No'}
+
+📝 PROJECT DESCRIPTION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${projectDetails || 'No additional details provided'}
+
+🔗 NEXT STEPS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Review project requirements
+2. Prepare detailed quote
+3. Send proposal within 24 hours to: ${email}
+
+---
+This message was sent from vonsIT.com contact form
+Generated on: ${currentDate}
+    `.trim();
+    
+    // Prepare template parameters for EmailJS with improved formatting
     const templateParams = {
+        to_email: 'von@vonsit.com',
         from_name: name,
         from_email: email,
-        phone: phone || 'Not provided',
+        reply_to: email,
+        subject: emailSubject,
+        message: emailBody,
+        
+        // Individual fields for template flexibility
+        client_name: name,
+        client_email: email,
+        client_phone: phone || 'Not provided',
         project_type: projectType,
         budget_range: budgetRange,
         project_details: projectDetails || 'No additional details provided',
         referral_source: referralSource || 'Not specified',
         newsletter_opt_in: newsletterOptIn ? 'Yes' : 'No',
-        to_email: 'von@vonsit.com'
+        submission_date: currentDate
     };
     
     // Send email using EmailJS
