@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Request Submitted | vonsIT - Professional Web Development</title>
+    <meta name="description" content="Thank you for your quote request. We'll get back to you within 24 hours with a detailed proposal.">
+    
+    <!-- Prevent indexing of confirmation pages -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="VonsIT" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W58WMGSYS0">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-W58WMGSYS0');
+      
+      // Google Ads conversion tracking configuration
+      // Uncomment and replace 'AW-XXXXXXXXX' with your actual Google Ads conversion ID when ready
+      // gtag('config', 'AW-XXXXXXXXX');
+      
+      // Track page view as conversion confirmation
+      gtag('event', 'page_view', {
+        'page_title': 'Quote Confirmation',
+        'page_location': window.location.href,
+        'event_category': 'conversion',
+        'event_label': 'quote_confirmation_page'
+      });
+    </script>
+
+    <style>
+        .confirmation-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1d29 50%, #0f172a 100%);
+            padding: 6rem 0 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confirmation-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 40% 60%, rgba(14, 165, 233, 0.1) 0%, transparent 35%);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .confirmation-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .confirmation-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        .confirmation-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 25px 50px rgba(34, 197, 94, 0.3);
+            animation: successPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .confirmation-content h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+
+        .confirmation-content p {
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            color: #e2e8f0;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .confirmation-details {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .confirmation-details h3 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .confirmation-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .confirmation-details li {
+            color: #cbd5e1;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .confirmation-details li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .confirmation-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-button.primary {
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            color: white;
+        }
+
+        .action-button.secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .action-button.primary:hover {
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+        }
+
+        .action-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        @media (max-width: 768px) {
+            .confirmation-hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .confirmation-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .confirmation-details {
+                padding: 1.5rem;
+            }
+
+            .confirmation-actions {
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html#home" class="logo">
+                    <div class="logo-icon">
+                        <div class="bracket-left">&lt;</div>
+                        <div class="logo-dot"></div>
+                        <div class="bracket-right">/&gt;</div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#why-us">Why Us</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <section class="confirmation-hero">
+        <div class="confirmation-content">
+            <div class="confirmation-icon">
+                ✓
+            </div>
+            
+            <h1>Quote Request Submitted!</h1>
+            <p>Thank you for choosing vonsIT. Your quote request has been successfully submitted and we've received all your project details.</p>
+            
+            <div class="confirmation-details">
+                <h3>What happens next?</h3>
+                <ul>
+                    <li>We'll review your project requirements within 2-4 hours</li>
+                    <li>You'll receive a detailed proposal within 24 hours</li>
+                    <li>We'll schedule a call to discuss your project in detail</li>
+                    <li>Upon approval, we'll start your project within 1-2 business days</li>
+                </ul>
+            </div>
+            
+            <div class="confirmation-actions">
+                <a href="index.html" class="action-button primary">
+                    Return to Homepage
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </a>
+                <a href="resources.html" class="action-button secondary">
+                    Explore Resources
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-new">
+        <div class="footer-background">
+            <div class="footer-shapes">
+                <div class="footer-shape footer-shape-1"></div>
+                <div class="footer-shape footer-shape-2"></div>
+                <div class="footer-shape footer-shape-3"></div>
+            </div>
+        </div>
+        
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand-section">
+                    <div class="footer-logo">
+                        <a href="index.html#home" class="logo footer-logo-style">
+                            <div class="logo-icon">
+                                <div class="bracket-left">&lt;</div>
+                                <div class="logo-dot"></div>
+                                <div class="bracket-right">/&gt;</div>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                            </div>
+                        </a>
+                        <div class="footer-tagline">Digital Experiences That Perform</div>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    <polyline points="3.29,7 12,12 20.71,7"/>
+                                    <line x1="12" y1="22" x2="12" y2="12"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Website</span>
+                                <span class="contact-value">vonsIT.com</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item" itemscope itemtype="https://schema.org/ContactPoint">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:von@vonsit.com" class="contact-value contact-link" itemprop="email" rel="noopener">von@vonsit.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-nav-section">
+                    <h4 class="footer-nav-title">Quick Links</h4>
+                    <nav class="footer-nav-links">
+                        <a href="index.html#services" class="footer-link">Services</a>
+                        <a href="index.html#process" class="footer-link">Process</a>
+                        <a href="index.html#why-us" class="footer-link">Why Us</a>
+                        <a href="resources.html" class="footer-link">Resources</a>
+                        <a href="quote.html" class="footer-link">Get Quote</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-nav-section">
+                    <h4 class="footer-nav-title">Legal</h4>
+                    <nav class="footer-nav-links">
+                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-cta-section">
+                    <div class="footer-cta-content">
+                        <h4 class="footer-cta-title">Ready to Start?</h4>
+                        <p class="footer-cta-subtitle">Let's build something amazing together</p>
+                        <a href="quote.html" class="footer-cta-button">
+                            <span>Request Your Quote</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-copyright">
+                    <span>&copy; 2024 vonsIT. All rights reserved.</span>
+                    <div class="footer-status">
+                        <div class="status-indicator"></div>
+                        <span>Available for New Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-netlify.js"></script>
+</body>
+</html> 

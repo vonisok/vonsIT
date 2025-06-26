@@ -2,7 +2,11 @@
 // Enhanced UX with Netlify's built-in form processing and Gmail SMTP
 
 // Form submission handling for Netlify
-document.getElementById('quoteForm').addEventListener('submit', function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+    const quoteForm = document.getElementById('quoteForm');
+    if (!quoteForm) return; // Exit if form doesn't exist on this page
+    
+    quoteForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     const form = this;
@@ -45,24 +49,52 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     .then(response => {
         if (response.ok) {
             // Success
-            showMessage(`✅ Thank you, ${name}! Your quote request has been sent successfully. We'll get back to you within 24 hours at ${email}.`, 'success');
+            showMessage(`✅ Thank you, ${name}! Your quote request has been sent successfully. Redirecting...`, 'success');
             form.reset();
             
-            // Optional: Track form submission
+            // Track form submission for Google Analytics
             if (typeof gtag !== 'undefined') {
+                // Standard Analytics event
                 gtag('event', 'form_submit', {
                     event_category: 'engagement',
                     event_label: 'quote_request',
                     value: budgetRange
                 });
+                
+                // Google Ads conversion tracking - DISABLED until conversion ID is configured
+                // Uncomment and configure when you have your Google Ads conversion ID
+                /*
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-XXXXXXXXX/CONVERSION_LABEL', // Replace with your actual conversion ID/label
+                    'value': 1.0,
+                    'currency': 'USD',
+                    'transaction_id': Date.now().toString() // Unique transaction ID
+                });
+                */
+                
+                // Enhanced conversion tracking (more detailed)
+                gtag('event', 'generate_lead', {
+                    'currency': 'USD',
+                    'value': 1.0,
+                    'event_category': 'ecommerce',
+                    'event_label': 'quote_request_submission',
+                    'project_type': projectType,
+                    'budget_range': budgetRange
+                });
             }
             
-            // Close modal after a delay if it exists
+            // Generate random token and redirect to confirmation page
+            const randomToken = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            
             setTimeout(() => {
-                if (typeof closeQuoteModal === 'function') {
-                    closeQuoteModal();
+                try {
+                    window.location.href = `/quote-confirmed?token=${randomToken}`;
+                } catch (error) {
+                    console.error('Redirect error:', error);
+                    // Fallback: show success message instead of redirect
+                    showMessage(`✅ Thank you, ${name}! Your quote request has been sent successfully. We'll get back to you within 24 hours.`, 'success');
                 }
-            }, 3000);
+            }, 1500);
             
         } else {
             throw new Error('Network response was not ok');
@@ -76,6 +108,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
         // Reset button state
         submitBtn.disabled = false;
         submitBtn.textContent = 'Get My Custom Quote →';
+    });
     });
 });
 
@@ -113,6 +146,9 @@ function showMessage(message, type) {
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('quoteForm');
     const submitBtn = document.getElementById('submit-btn');
+    
+    // Exit if form elements don't exist on this page
+    if (!form || !submitBtn) return;
     
     // Add form field animations and improvements
     const formInputs = form.querySelectorAll('input, select, textarea');
