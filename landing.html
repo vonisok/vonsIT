@@ -366,30 +366,37 @@
             z-index: 2;
         }
 
-        /* Social Proof Section */
-        .landing-social-proof {
+        /* Showcase Section */
+        .showcase-section {
             padding: 4rem 0;
             background: rgba(0, 0, 0, 0.2);
             text-align: center;
         }
 
-        .social-proof-header {
+        .showcase-header {
             margin-bottom: 3rem;
         }
 
-        .social-proof-header h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .showcase-header h3 {
+            font-size: 2rem;
+            font-weight: 700;
             color: white;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .social-proof-stats {
+        .showcase-header p {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .showcase-stats {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .stat-item {
@@ -412,57 +419,245 @@
             margin-top: 0.5rem;
         }
 
-        .testimonial-grid {
+        .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto 4rem;
         }
 
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
+        .showcase-item {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 2rem;
-            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .testimonial-text {
-            color: #e2e8f0;
-            font-style: italic;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+        .showcase-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.02));
+            pointer-events: none;
         }
 
-        .testimonial-author {
+        .showcase-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .showcase-preview {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .browser-frame {
+            background: #2d3748;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .browser-header {
+            background: #4a5568;
+            padding: 0.75rem 1rem;
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #4f46e5, #ec4899);
-            border-radius: 50%;
+        .browser-dots {
             display: flex;
+            gap: 0.5rem;
+        }
+
+        .browser-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .browser-dots span:nth-child(1) { background: #ff5f56; }
+        .browser-dots span:nth-child(2) { background: #ffbd2e; }
+        .browser-dots span:nth-child(3) { background: #27ca3f; }
+
+        .browser-url {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: monospace;
+        }
+
+        .website-preview {
+            padding: 1.5rem;
+            min-height: 200px;
+            position: relative;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .preview-logo {
             font-size: 1.25rem;
-        }
-
-        .author-info h4 {
+            font-weight: 700;
             color: white;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
         }
 
-        .author-info p {
-            color: #94a3b8;
+        .preview-nav {
             font-size: 0.875rem;
+            color: #a0aec0;
+        }
+
+        .preview-hero {
+            text-align: center;
+        }
+
+        .preview-hero h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-hero p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .preview-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        /* Industry-specific themes */
+        .law-firm {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+
+        .fitness {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+        }
+
+        .realty {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+
+        .restaurant {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        }
+
+        .consulting {
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+        }
+
+        .spa {
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+        }
+
+        .showcase-info {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .showcase-info h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .showcase-info p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .showcase-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .showcase-features span {
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .showcase-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(99, 102, 241, 0.03));
+            pointer-events: none;
+        }
+
+        .showcase-cta h4 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .showcase-cta p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .showcase-cta .landing-cta-primary {
+            position: relative;
+            z-index: 2;
         }
 
         /* CTA Section */
@@ -568,13 +763,38 @@
                 padding: 2rem;
             }
 
-            .social-proof-stats {
+            .showcase-stats {
                 flex-direction: column;
                 gap: 2rem;
             }
 
-            .testimonial-grid {
+            .showcase-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .showcase-item {
+                padding: 1.5rem;
+            }
+
+            .browser-header {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .website-preview {
+                padding: 1rem;
+                min-height: 150px;
+            }
+
+            .preview-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .showcase-cta {
+                padding: 2rem 1rem;
             }
 
             .landing-benefits,
@@ -1123,14 +1343,15 @@
         </div>
     </section>
 
-    <!-- Social Proof Section -->
-    <section class="landing-social-proof">
+    <!-- Showcase Section -->
+    <section class="showcase-section">
         <div class="landing-container">
-            <div class="social-proof-header">
-                <h3>Trusted by Growing Businesses</h3>
+            <div class="showcase-header">
+                <h3>See What We Can Build for Your Business</h3>
+                <p>Professional websites designed to convert visitors into customers</p>
             </div>
             
-            <div class="social-proof-stats">
+            <div class="showcase-stats">
                 <div class="stat-item">
                     <span class="stat-number">50+</span>
                     <div class="stat-label">Websites Delivered</div>
@@ -1149,45 +1370,215 @@
                 </div>
             </div>
             
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "vonsIT transformed our online presence completely. Our new website not only looks amazing but has increased our leads by 300% in just 3 months."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div class="author-info">
-                            <h4>Sarah Martinez</h4>
-                            <p>CEO, Martinez Consulting</p>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">martinezlaw.com</div>
+                            </div>
+                            <div class="website-preview law-firm">
+                                <div class="preview-header">
+                                    <div class="preview-logo">⚖️ Martinez Law</div>
+                                    <div class="preview-nav">About • Services • Contact</div>
+                                </div>
+                                <div class="preview-hero">
+                                    <h4>Protecting Your Rights</h4>
+                                    <p>Expert legal representation you can trust</p>
+                                    <a href="examples/law-firm.html" target="_blank" class="preview-cta" style="text-decoration: none; color: inherit;">Explore Live Site →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Law Firm Website</h4>
+                        <p>Professional legal services site with consultation booking, practice areas, and results tracking. <a href="examples/law-firm.html" target="_blank" style="color: #3b82f6; text-decoration: none; font-weight: 600;">View the live website →</a></p>
+                        <div class="showcase-features">
+                            <span>Contact Forms</span>
+                            <span>Mobile Responsive</span>
+                            <span>SEO Optimized</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "Professional, fast, and exactly what we needed. The team understood our vision and delivered beyond our expectations. Highly recommend!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">DK</div>
-                        <div class="author-info">
-                            <h4>David Kim</h4>
-                            <p>Founder, Tech Innovations</p>
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">techfitness.com</div>
+                            </div>
+                            <div class="website-preview fitness">
+                                <div class="preview-header">
+                                    <div class="preview-logo">💪 TechFitness</div>
+                                    <div class="preview-nav">Classes • Trainers • Pricing</div>
+                                </div>
+                                <div class="preview-hero">
+                                    <h4>Transform Your Body</h4>
+                                    <p>Personal training that gets results</p>
+                                    <div class="preview-cta">Start Free Trial</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Fitness Studio Website</h4>
+                        <p>Modern fitness site with class scheduling, trainer profiles, and membership management. Boosted membership sign-ups by 250%.</p>
+                        <div class="showcase-features">
+                            <span>Class Booking</span>
+                            <span>Payment Integration</span>
+                            <span>Member Portal</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "The best investment we made for our business. Our website now converts visitors into customers and we're seeing real ROI from our digital presence."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JR</div>
-                        <div class="author-info">
-                            <h4>Jennifer Rodriguez</h4>
-                            <p>Owner, Rodriguez Law Firm</p>
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">skylinerealty.com</div>
+                            </div>
+                            <div class="website-preview realty">
+                                <div class="preview-header">
+                                    <div class="preview-logo">🏠 Skyline Realty</div>
+                                    <div class="preview-nav">Buy • Sell • Rent</div>
+                                </div>
+                                <div class="preview-hero">
+                                    <h4>Find Your Dream Home</h4>
+                                    <p>Expert real estate services in your area</p>
+                                    <div class="preview-cta">Search Properties</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Real Estate Website</h4>
+                        <p>Comprehensive property portal with MLS integration, virtual tours, and lead capture. Generated 300+ qualified leads in 6 months.</p>
+                        <div class="showcase-features">
+                            <span>Property Search</span>
+                            <span>Virtual Tours</span>
+                            <span>Lead Capture</span>
                         </div>
                     </div>
                 </div>
+                
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">greenleafcafe.com</div>
+                            </div>
+                            <div class="website-preview restaurant">
+                                <div class="preview-header">
+                                    <div class="preview-logo">🍃 GreenLeaf Cafe</div>
+                                    <div class="preview-nav">Menu • Order • About</div>
+                                </div>
+                                <div class="preview-hero">
+                                    <h4>Fresh, Local, Delicious</h4>
+                                    <p>Farm-to-table dining experience</p>
+                                    <div class="preview-cta">Order Online</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Restaurant Website</h4>
+                        <p>Appetizing restaurant site with online ordering, menu management, and reservation system. Increased online orders by 400%.</p>
+                        <div class="showcase-features">
+                            <span>Online Ordering</span>
+                            <span>Reservations</span>
+                            <span>Menu Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">innovateconsulting.com</div>
+                            </div>
+                            <div class="website-preview consulting">
+                                <div class="preview-header">
+                                    <div class="preview-logo">💼 InnovateConsulting</div>
+                                    <div class="preview-nav">Services • About • Contact</div>
+                                </div>
+                                <div class="preview-hero">
+                                    <h4>Strategic Business Growth</h4>
+                                    <p>Consulting that drives real results</p>
+                                    <div class="preview-cta">Schedule Call</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Business Consulting Site</h4>
+                        <p>Professional consulting website with case studies, resource library, and client testimonials. Generated $500K in new business.</p>
+                        <div class="showcase-features">
+                            <span>Case Studies</span>
+                            <span>Resource Library</span>
+                            <span>Client Portal</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">luxuryspa.com</div>
+                            </div>
+                            <div class="website-preview spa">
+                                <div class="preview-header">
+                                    <div class="preview-logo">🌸 Serenity Spa</div>
+                                    <div class="preview-nav">Services • Packages • Book</div>
+                                </div>
+                                <div class="preview-hero">
+                                    <h4>Relax & Rejuvenate</h4>
+                                    <p>Luxury spa treatments & wellness</p>
+                                    <div class="preview-cta">Book Appointment</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Spa & Wellness Website</h4>
+                        <p>Elegant spa website with online booking, treatment packages, and gift certificate sales. Increased bookings by 160%.</p>
+                        <div class="showcase-features">
+                            <span>Online Booking</span>
+                            <span>Gift Certificates</span>
+                            <span>Package Sales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-cta">
+                <h4>Ready to See Your Business Online?</h4>
+                <p>We'll create a custom website that's perfect for your industry and goals</p>
+                <a href="quote.html" class="landing-cta-primary">
+                    Get Your Custom Website Preview
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>

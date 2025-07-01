@@ -179,15 +179,23 @@
         /* Hero Section */
         .hero {
             background: 
-                linear-gradient(rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.8)),
+                linear-gradient(135deg, 
+                    rgba(15, 23, 42, 0.95) 0%, 
+                    rgba(30, 41, 59, 0.9) 25%,
+                    rgba(51, 65, 85, 0.85) 50%,
+                    rgba(30, 58, 138, 0.9) 75%,
+                    rgba(15, 23, 42, 0.95) 100%
+                ),
                 url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 8rem 0 6rem;
+            padding: 8rem 0 4rem;
             margin-top: 80px;
             position: relative;
             overflow: hidden;
+            min-height: 90vh;
         }
 
         .hero::before {
@@ -197,9 +205,26 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            background-size: 50px 50px;
-            opacity: 0.2;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.1) 0%, rgba(30, 41, 59, 0.05) 100%);
+            opacity: 0.8;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -677,56 +702,61 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: 80vh;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; min-height: 75vh; position: relative; z-index: 3;">
                 <!-- Left Content -->
-                <div class="hero-content" style="text-align: left; max-width: none;">
-                    <div style="margin-bottom: 1rem;">
-                        <span style="color: #cbd5e1; font-size: 1rem; font-weight: 500;">Location</span>
+                <div class="hero-content" style="text-align: left; max-width: none; padding: 2rem 0;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <span style="color: #e2e8f0; font-size: 1.125rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Location</span>
                     </div>
-                    <h1 style="font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 2rem; line-height: 1.1;">LOS ANGELES CAR ACCIDENT<br>LAWYER</h1>
+                    <h1 style="font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 2.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em;">LOS ANGELES CAR ACCIDENT<br>LAWYER</h1>
                     
                     <!-- Google Reviews -->
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTAwIDMyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTUuNzMgMTlIMTAuOTdWMTMuNTVIMTUuNzNWMTlaIiBmaWxsPSIjRUE0MzM1Ii8+CjxwYXRoIGQ9Ik0xNS43MyAxMy41NUgxMC45N1Y4LjA5SDE1LjczVjEzLjU1WiIgZmlsbD0iIzQyODVGNCIvPgo8cGF0aCBkPSJNMjEuMjIgMTlIMTYuNDZWMTMuNTVIMjEuMjJWMTlaIiBmaWxsPSIjMzRBODUzIi8+CjxwYXRoIGQ9Ik0yMS4yMiAxMy41NUgxNi40NlY4LjA5SDIxLjIyVjEzLjU1WiIgZmlsbD0iI0ZCQkMwNSIvPgo8L3N2Zz4K" alt="Google" style="height: 20px;">
-                        <span style="font-size: 1.5rem; font-weight: 700; color: white;">5.0</span>
-                        <div style="display: flex; gap: 2px;">
-                            <span style="color: #fbbf24; font-size: 1.25rem;">★</span>
-                            <span style="color: #fbbf24; font-size: 1.25rem;">★</span>
-                            <span style="color: #fbbf24; font-size: 1.25rem;">★</span>
-                            <span style="color: #fbbf24; font-size: 1.25rem;">★</span>
-                            <span style="color: #fbbf24; font-size: 1.25rem;">★</span>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.2);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3C/svg%3E" alt="Google" style="height: 28px; width: 28px;">
+                            <span style="font-size: 2rem; font-weight: 800; color: white; margin-right: 0.5rem;">5.0</span>
+                            <div style="display: flex; gap: 3px;">
+                                <span style="color: #fbbf24; font-size: 1.5rem;">★</span>
+                                <span style="color: #fbbf24; font-size: 1.5rem;">★</span>
+                                <span style="color: #fbbf24; font-size: 1.5rem;">★</span>
+                                <span style="color: #fbbf24; font-size: 1.5rem;">★</span>
+                                <span style="color: #fbbf24; font-size: 1.5rem;">★</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Navigation Breadcrumb -->
-                    <div style="margin-bottom: 3rem; opacity: 0.8;">
-                        <a href="../index.html" style="color: #cbd5e1; text-decoration: none;">Home</a>
-                        <span style="color: #cbd5e1; margin: 0 0.5rem;">></span>
-                        <a href="#services" style="color: #cbd5e1; text-decoration: none;">Los Angeles Personal Injury Lawyer</a>
-                        <span style="color: #cbd5e1; margin: 0 0.5rem;">></span>
-                        <span style="color: white;">Los Angeles Car Accident Lawyer</span>
+                    <div style="margin-bottom: 4rem; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 12px; backdrop-filter: blur(10px);">
+                        <a href="../index.html" style="color: #e2e8f0; text-decoration: none; font-weight: 500;">Home</a>
+                        <span style="color: #94a3b8; margin: 0 0.75rem;">></span>
+                        <a href="#services" style="color: #e2e8f0; text-decoration: none; font-weight: 500;">Los Angeles Personal Injury Lawyer</a>
+                        <span style="color: #94a3b8; margin: 0 0.75rem;">></span>
+                        <span style="color: white; font-weight: 600;">Los Angeles Car Accident Lawyer</span>
                     </div>
                     
-                    <div class="hero-cta">
-                        <a href="#contact" class="cta-primary" style="margin-bottom: 1rem;">
+                    <div class="hero-cta" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <a href="#contact" style="background: white; color: #1e3a8a; padding: 1.25rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.125rem; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); max-width: 320px;">
                             Get Your Free Consultation
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="m9 18 6-6-6-6"/>
                             </svg>
                         </a>
-                        <a href="tel:+1-888-333-5555" class="cta-secondary" style="font-size: 1.125rem;">
-                            📞 Call Now: (888) 333-5555
+                        <a href="tel:+1-888-333-5555" style="color: #fbbf24; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.25rem; transition: all 0.3s ease;">
+                            <span style="background: #ef4444; color: white; padding: 0.5rem; border-radius: 8px; font-size: 1rem;">📞</span>
+                            Call Now: (888) 333-5555
                         </a>
                     </div>
                 </div>
 
                 <!-- Right Attorney Photo -->
-                <div style="position: relative;">
-                    <div style="background: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center; width: 100%; height: 500px; border-radius: 20px; position: relative;">
-                        <!-- Call to Action Overlay -->
-                        <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; color: #1e3a8a; font-weight: 600; text-align: center; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);">
-                            <div style="font-size: 0.875rem; margin-bottom: 0.5rem;">Call Now for A Free Consultation</div>
-                            <div style="font-size: 1.25rem; font-weight: 800;">(888) 333-5555</div>
+                <div style="position: relative; display: flex; justify-content: center;">
+                    <div style="width: 450px; height: 550px; position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Attorney Martinez" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                        
+                        <!-- Professional Overlay -->
+                        <div style="position: absolute; bottom: 30px; right: 30px; background: rgba(255, 255, 255, 0.98); padding: 1.5rem 2rem; border-radius: 16px; color: #1e3a8a; text-align: center; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px);">
+                            <div style="font-size: 0.875rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Call Now for A Free Consultation</div>
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #1e3a8a; letter-spacing: -0.02em;">(888) 333-5555</div>
                         </div>
                     </div>
                 </div>
@@ -735,31 +765,33 @@
     </section>
 
     <!-- Results Showcase -->
-    <section style="background: #1e293b; color: white; padding: 3rem 0;">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">Our Results</h2>
+    <section style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); color: white; padding: 4rem 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%); opacity: 0.6;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: left; margin-bottom: 3rem;">
+                <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem; color: white; font-family: 'Playfair Display', serif;">Our Results</h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 16px;">
-                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.5rem;">Insurance Company Offer</div>
-                    <div style="font-size: 1rem; color: #cbd5e1; margin-bottom: 0.5rem;">$35,000</div>
-                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.5rem;">Martinez Law Recovered</div>
-                    <div style="font-size: 3rem; font-weight: 900; color: #ef4444;">$2,250,000</div>
-                    <div style="font-size: 0.875rem; color: #94a3b8;">For an Auto Wreck</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem;">
+                <div style="text-align: center; background: rgba(15, 23, 42, 0.8); padding: 2.5rem 2rem; border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Insurance Company Offer</div>
+                    <div style="font-size: 1.5rem; color: #e2e8f0; margin-bottom: 0.75rem; font-weight: 600;">$35,000</div>
+                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Martinez Law Recovered</div>
+                    <div style="font-size: 4rem; font-weight: 900; color: #ef4444; line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em;">$2,250,000</div>
+                    <div style="font-size: 0.875rem; color: #cbd5e1; font-weight: 500;">For an Auto Wreck</div>
                 </div>
-                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 16px;">
-                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.5rem;">Long Wait</div>
-                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.5rem;">Martinez Law Result</div>
-                    <div style="font-size: 3rem; font-weight: 900; color: #ef4444;">$1,000,000</div>
-                    <div style="font-size: 0.875rem; color: #94a3b8;">Offer in 60 Days</div>
+                <div style="text-align: center; background: rgba(15, 23, 42, 0.8); padding: 2.5rem 2rem; border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Long Wait</div>
+                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Martinez Law Result</div>
+                    <div style="font-size: 4rem; font-weight: 900; color: #ef4444; line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em;">$1,000,000</div>
+                    <div style="font-size: 0.875rem; color: #cbd5e1; font-weight: 500;">Offer in 60 Days</div>
                 </div>
-                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 16px;">
-                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.5rem;">Big Firm Offer</div>
-                    <div style="font-size: 1rem; color: #cbd5e1; margin-bottom: 0.5rem;">$25,000</div>
-                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.5rem;">Martinez Law Recovered</div>
-                    <div style="font-size: 3rem; font-weight: 900; color: #ef4444;">$485,000</div>
-                    <div style="font-size: 0.875rem; color: #94a3b8;">Motorcycle Accident</div>
+                <div style="text-align: center; background: rgba(15, 23, 42, 0.8); padding: 2.5rem 2rem; border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); transition: all 0.3s ease;">
+                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Big Firm Offer</div>
+                    <div style="font-size: 1.5rem; color: #e2e8f0; margin-bottom: 0.75rem; font-weight: 600;">$25,000</div>
+                    <div style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Martinez Law Recovered</div>
+                    <div style="font-size: 4rem; font-weight: 900; color: #ef4444; line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em;">$485,000</div>
+                    <div style="font-size: 0.875rem; color: #cbd5e1; font-weight: 500;">Auto/Truck Accident</div>
                 </div>
             </div>
         </div>
