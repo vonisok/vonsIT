@@ -2962,20 +2962,29 @@ section h2 {
 
 /* REMOVED MEDIUM SCREEN HERO CTA STYLES */
 
-/* Desktop Hero Layout - Ensure two columns on larger screens */
-@media (min-width: 769px) {
-    .hero-container {
+/* Desktop Hero Layout - Force two columns on desktop */
+@media screen and (min-width: 769px) {
+    .hero-new .hero-container {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: clamp(3rem, 6vw, 6rem) !important;
         align-items: center !important;
         text-align: left !important;
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 0 clamp(1rem, 4vw, 2rem) !important;
+        position: relative !important;
+        z-index: 2 !important;
+        min-height: 85vh !important;
     }
     
-    .hero-visual-modern {
+    .hero-new .hero-visual-modern {
         display: flex !important;
         opacity: 1 !important;
         height: 500px !important;
+        position: relative !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 }
 
@@ -2990,11 +2999,11 @@ section h2 {
     }
     
     /* Hero Responsive - Mobile */
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-        padding: 0 1rem;
+    .hero-new .hero-container {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        text-align: center !important;
+        padding: 0 1rem !important;
     }
     
     .code-overlay {
@@ -3687,3 +3696,35 @@ html {
 } 
 
 /* Removed old conflicting styles */
+
+/* FINAL OVERRIDE: Ensure desktop hero layout works */
+@media screen and (min-width: 769px) {
+    section.hero-new .hero-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: clamp(3rem, 6vw, 6rem) !important;
+        align-items: center !important;
+        text-align: left !important;
+    }
+    
+    section.hero-new .hero-visual-modern {
+        display: flex !important;
+        opacity: 1 !important;
+        height: 500px !important;
+    }
+    
+    section.hero-new .hero-visual-modern .modern-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    section.hero-new .device-showcase,
+    section.hero-new .metrics-display,
+    section.hero-new .particle-system {
+        display: block !important;
+        opacity: 1 !important;
+    }
+}
