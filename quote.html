@@ -417,7 +417,6 @@
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#process">Process</a></li>
                 <li><a href="index.html#why-us">Why Us</a></li>
-                <li><a href="resources.html">Resources</a></li>
                 <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
             </ul>
             <button class="nav-toggle">☰</button>
@@ -439,7 +438,7 @@
                     <p>Fill out the form below and we'll get back to you with a detailed proposal.</p>
                 </div>
                 
-                <form id="quoteForm" class="quote-form" itemscope itemtype="https://schema.org/ContactForm" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <form id="quoteForm" class="quote-form" itemscope itemtype="https://schema.org/ContactForm" name="quote-request" method="POST" action="/quote-confirmed.html" data-netlify="true" netlify-honeypot="bot-field">
                     <div id="form-messages" class="form-messages"></div>
                     
                     <!-- Hidden honeypot field for spam protection -->
@@ -555,7 +554,6 @@
                         <a href="index.html#services" class="footer-link">Services</a>
                         <a href="index.html#process" class="footer-link">Process</a>
                         <a href="index.html#why-us" class="footer-link">Why Us</a>
-                        <a href="resources.html" class="footer-link">Resources</a>
                         <a href="quote.html" class="footer-link">Get Quote</a>
                     </nav>
                 </div>
@@ -594,6 +592,35 @@
             </div>
         </div>
     </footer>
+
+    <!-- Hidden form for Netlify form detection -->
+    <form name="quote-request" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <select name="project-type">
+            <option value="New Website">New Website</option>
+            <option value="Website Redesign">Website Redesign</option>
+            <option value="E-commerce Store">E-commerce Store</option>
+            <option value="Web Application">Web Application</option>
+            <option value="Landing Page">Landing Page</option>
+            <option value="WordPress Site">WordPress Site</option>
+            <option value="Brand Identity">Brand Identity</option>
+            <option value="Website Maintenance">Website Maintenance</option>
+            <option value="Other">Other</option>
+        </select>
+        <select name="budget-range">
+            <option value="Under $500">Under $500</option>
+            <option value="$500 - $1,000">$500 - $1,000</option>
+            <option value="$1,000 - $2,500+">$1,000 - $2,500+</option>
+        </select>
+        <textarea name="project-details"></textarea>
+        <input type="text" name="referral-source" />
+        <input type="checkbox" name="newsletter-opt-in" />
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="quote-request" />
+        <input type="hidden" name="domain" value="vonsit.com" />
+    </form>
 
     <script src="script-netlify.js"></script>
 </body>

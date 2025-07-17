@@ -366,29 +366,48 @@
             z-index: 2;
         }
 
-        /* Showcase Section */
+        /* Showcase Section - Matching Website Theme */
         .showcase-section {
-            padding: 4rem 0;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
             text-align: center;
         }
 
+        .showcase-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
         .showcase-header {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
         }
 
         .showcase-header h3 {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
             color: white;
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
         .showcase-header p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: #cbd5e1;
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
         .showcase-stats {
@@ -397,16 +416,33 @@
             justify-content: center;
             gap: 3rem;
             margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
         }
 
         .stat-item {
             text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #22c55e;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: block;
             line-height: 1;
         }
@@ -421,21 +457,23 @@
 
         .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 3rem;
             max-width: 1400px;
             margin: 0 auto 4rem;
+            position: relative;
+            z-index: 2;
         }
 
         .showcase-item {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
             border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(20px);
         }
 
         .showcase-item::before {
@@ -445,14 +483,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.02));
+            background: linear-gradient(145deg, transparent, rgba(255, 255, 255, 0.02));
+            opacity: 0;
+            transition: opacity 0.4s ease;
             pointer-events: none;
         }
 
+        .showcase-item:hover::before {
+            opacity: 1;
+        }
+
         .showcase-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+            border-color: rgba(79, 70, 229, 0.4);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(79, 70, 229, 0.1);
         }
 
         .showcase-preview {
@@ -462,18 +508,21 @@
         }
 
         .browser-frame {
-            background: #2d3748;
+            background: #1e293b;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(71, 85, 105, 0.2);
         }
 
         .browser-header {
-            background: #4a5568;
+            background: #334155;
             padding: 0.75rem 1rem;
             display: flex;
             align-items: center;
             gap: 1rem;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
         }
 
         .browser-dots {
@@ -493,18 +542,52 @@
         .browser-dots span:nth-child(3) { background: #27ca3f; }
 
         .browser-url {
-            background: #2d3748;
-            color: #a0aec0;
+            background: #1e293b;
+            color: #94a3b8;
             padding: 0.25rem 0.75rem;
             border-radius: 6px;
             font-size: 0.75rem;
-            font-family: monospace;
+            font-family: 'Inter', monospace;
+            border: 1px solid rgba(71, 85, 105, 0.3);
         }
 
         .website-preview {
-            padding: 1.5rem;
-            min-height: 200px;
+            height: 400px;
             position: relative;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .live-preview-iframe {
+            width: 125%;
+            height: 300vh;
+            border: none;
+            transform: scale(0.8) translateX(-10%);
+            transform-origin: top left;
+            transition: all 4s ease-in-out;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .showcase-item:hover .live-preview-iframe {
+            transform: scale(0.8) translateX(-10%) translateY(-200vh);
+        }
+
+        /* Screenshot-based preview styling */
+        .live-preview-screenshot {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 4s ease-in-out;
+            transform: translateY(0);
+        }
+
+        .showcase-item:hover .live-preview-screenshot {
+            /* Dynamic transform will be set by JavaScript */
         }
 
         .preview-header {
@@ -585,19 +668,21 @@
             position: relative;
             z-index: 2;
             text-align: left;
+            padding: 2rem;
         }
 
         .showcase-info h4 {
-            font-size: 1.25rem;
+            font-size: 1.375rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .showcase-info p {
             color: #cbd5e1;
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 0.95rem;
         }
 
@@ -608,23 +693,28 @@
         }
 
         .showcase-features span {
-            background: rgba(99, 102, 241, 0.2);
-            color: #a5b4fc;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            color: #a78bfa;
             font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .showcase-cta {
             text-align: center;
             padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.03);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
             position: relative;
             overflow: hidden;
+            margin: 0 auto;
+            max-width: 600px;
         }
 
         .showcase-cta::before {
@@ -634,7 +724,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(99, 102, 241, 0.03));
+            background: linear-gradient(145deg, transparent, rgba(255, 255, 255, 0.02));
             pointer-events: none;
         }
 
@@ -653,6 +743,7 @@
             font-size: 1.125rem;
             position: relative;
             z-index: 2;
+            line-height: 1.6;
         }
 
         .showcase-cta .landing-cta-primary {
@@ -842,23 +933,71 @@
             66% { transform: translateY(10px) rotate(-5deg); }
         }
 
-        /* Package Card Styles */
+        /* Professional Package Card Styles */
         .package-section {
-            padding: 4rem 0;
-            background: rgba(0, 0, 0, 0.3);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1a1d29 0%, #0f172a 50%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.06) 0%, transparent 45%);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .packages-header {
             text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .packages-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .packages-header p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .package-card {
-            max-width: 500px;
-            margin: 0 auto;
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(34, 197, 94, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2.5rem;
             position: relative;
             overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
         .package-card::before {
@@ -868,27 +1007,60 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(99, 102, 241, 0.03));
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.03));
             pointer-events: none;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .package-card.featured {
+            border: 2px solid rgba(99, 102, 241, 0.4);
+            transform: scale(1.05);
+        }
+
+        .package-card.featured::before {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(236, 72, 153, 0.05));
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0 0 12px 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 3;
         }
 
         .package-header {
             position: relative;
             z-index: 2;
             margin-bottom: 2rem;
+            margin-top: 1rem;
         }
 
         .package-title {
-            font-size: 1.75rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
             margin-bottom: 0.5rem;
         }
 
         .package-price {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            color: #22c55e;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             line-height: 1;
             margin-bottom: 0.5rem;
         }
@@ -896,6 +1068,7 @@
         .package-subtitle {
             color: #94a3b8;
             font-size: 1rem;
+            line-height: 1.4;
         }
 
         .package-features {
@@ -907,25 +1080,27 @@
 
         .package-feature {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.75rem;
             color: #e2e8f0;
             margin-bottom: 0.75rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .package-feature::before {
             content: '✓';
-            color: #22c55e;
+            color: #6366f1;
             font-weight: bold;
             font-size: 1.1rem;
             flex-shrink: 0;
+            margin-top: 0.1rem;
         }
 
-        /* Process Steps Styles */
+        /* Process Steps Styles - Matching Home Page */
         .process-visual {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #1a1d29 0%, #0f172a 50%, #1e293b 100%);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             position: relative;
             overflow: hidden;
         }
@@ -937,16 +1112,16 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.06) 0%, transparent 45%);
-            opacity: 0.9;
-            pointer-events: none;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
         }
 
         .process-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
             z-index: 2;
         }
@@ -954,31 +1129,86 @@
         .process-header h2 {
             font-size: clamp(2rem, 3vw, 2.5rem);
             font-weight: 800;
-            color: white;
+            color: #f1f5f9;
             margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
         }
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            margin-bottom: 4rem;
             position: relative;
-            z-index: 2;
+            perspective: 1000px;
+        }
+
+        /* Wireframe Connection Lines */
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 75px;
+            left: 16.67%;
+            right: 16.67%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                #6366f1 10%, 
+                #8b5cf6 30%, 
+                #d946ef 50%, 
+                #f59e0b 70%, 
+                #10b981 90%, 
+                transparent 100%
+            );
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Arrow connectors between steps */
+        .process-step:nth-child(1)::after,
+        .process-step:nth-child(2)::after {
+            content: '→';
+            position: absolute;
+            top: 65px;
+            right: -1.5rem;
+            font-size: 2rem;
+            color: #6366f1;
+            z-index: 3;
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
 
         .process-step {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
             text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border-radius: 20px;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(99, 102, 241, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
+            z-index: 2;
+            transform-style: preserve-3d;
         }
 
+        .process-step:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 30px rgba(99, 102, 241, 0.4);
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+
+        /* Wireframe grid overlay on hover */
         .process-step::before {
             content: '';
             position: absolute;
@@ -986,40 +1216,99 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.03));
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+            background-size: 10px 10px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             pointer-events: none;
         }
 
+        .process-step:hover::before {
+            opacity: 1;
+        }
+
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(145deg, #6366f1, #8b5cf6);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
             margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: white;
             position: relative;
-            z-index: 2;
+            box-shadow: 
+                0 15px 30px rgba(99, 102, 241, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.15) translateZ(20px);
+            box-shadow: 
+                0 25px 50px rgba(99, 102, 241, 0.6),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(99, 102, 241, 0.8);
+        }
+
+        /* Holographic effect */
+        .step-number::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            background: conic-gradient(from 0deg, #6366f1, #8b5cf6, #d946ef, #f59e0b, #10b981, #6366f1);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .process-step:hover .step-number::before {
+            opacity: 0.7;
         }
 
         .process-step h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: white;
             margin-bottom: 1rem;
+            color: #f1f5f9;
+            font-size: 1.3rem;
+            font-weight: 600;
             position: relative;
-            z-index: 2;
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .process-step h3::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #6366f1, #8b5cf6, transparent);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
         }
 
         .process-step p {
             color: #cbd5e1;
             line-height: 1.6;
-            position: relative;
-            z-index: 2;
+            font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         /* Trust Badges Styles */
@@ -1147,6 +1436,102 @@
                 align-items: center;
                 gap: 1rem;
             }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .package-card {
+                padding: 2rem;
+            }
+
+            .package-card.featured {
+                transform: none;
+                margin: 0;
+            }
+
+            .packages-header h2 {
+                font-size: 2rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .process-step {
+                padding: 2rem 1rem;
+            }
+
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+
+            /* Hide arrows on mobile */
+            .process-step:nth-child(1)::after,
+            .process-step:nth-child(2)::after {
+                display: none;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .showcase-item {
+                margin: 0 1rem;
+            }
+
+            .showcase-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .stat-item {
+                padding: 1rem;
+            }
+
+            .showcase-cta {
+                padding: 2rem 1rem;
+                margin: 0 1rem;
+            }
+
+            .website-preview {
+                height: 250px;
+            }
+
+            .live-preview-iframe {
+                width: 140%;
+                height: 250vh;
+                transform: scale(0.6) translateX(-15%);
+            }
+
+            .showcase-item:hover .live-preview-iframe {
+                transform: scale(0.6) translateX(-15%) translateY(-150vh);
+            }
+
+            .live-preview-screenshot {
+                width: 100%;
+                height: auto;
+                transform: translateY(0);
+                transition: transform 3s ease-in-out;
+            }
+
+            .browser-header {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .browser-url {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+            }
         }
     </style>
 </head>
@@ -1174,7 +1559,6 @@
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#process">Process</a></li>
                 <li><a href="index.html#why-us">Why Us</a></li>
-                <li><a href="resources.html">Resources</a></li>
                 <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
             </ul>
             <button class="nav-toggle">☰</button>
@@ -1275,33 +1659,98 @@
         </div>
     </section>
 
-    <!-- Package Card Section -->
+    <!-- Professional Packages Section -->
     <section class="package-section">
         <div class="landing-container">
-            <div class="package-card">
-                <div class="package-header">
-                    <h3 class="package-title">Revenue-Ready Website</h3>
-                    <div class="package-price">$1,000</div>
-                    <div class="package-subtitle">Everything you need to launch and succeed online</div>
+            <div class="packages-header">
+                <h2>Choose Your Perfect Website Package</h2>
+                <p>Professional website solutions designed to fit every business size and budget</p>
+            </div>
+            
+            <div class="packages-grid">
+                <!-- Starter Package -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-title">Essential Website</h3>
+                        <div class="package-price">$500 - $1,000</div>
+                        <div class="package-subtitle">Perfect for small businesses and startups getting online</div>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="package-feature">Up to 5 custom pages designed for your business</div>
+                        <div class="package-feature">Mobile-responsive design</div>
+                        <div class="package-feature">Basic SEO setup</div>
+                        <div class="package-feature">Contact form integration</div>
+                        <div class="package-feature">Social media links</div>
+                        <div class="package-feature">Google Analytics setup</div>
+                        <div class="package-feature">2 weeks of post-launch support</div>
+                        <div class="package-feature">Launch in 10-14 days</div>
+                    </div>
+                    
+                    <a href="quote.html" class="landing-cta-primary">
+                        Get Started
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
                 </div>
                 
-                <div class="package-features">
-                    <div class="package-feature">Up to 5 custom pages designed for your business</div>
-                    <div class="package-feature">Professional copywriting that converts visitors</div>
-                    <div class="package-feature">Mobile-responsive design (looks perfect everywhere)</div>
-                    <div class="package-feature">Basic SEO setup (help customers find you)</div>
-                    <div class="package-feature">Contact forms and lead capture</div>
-                    <div class="package-feature">Social media integration</div>
-                    <div class="package-feature">30-day optimization & support period</div>
-                    <div class="package-feature">Launch in 21 days or less</div>
+                <!-- Professional Package (Featured) -->
+                <div class="package-card featured">
+                    <div class="package-badge">Most Popular</div>
+                    <div class="package-header">
+                        <h3 class="package-title">Professional Website</h3>
+                        <div class="package-price">$1,000 - $1,500</div>
+                        <div class="package-subtitle">Complete solution for growing businesses that want results</div>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="package-feature">Up to 10 custom pages with strategic layout</div>
+                        <div class="package-feature">Professional copywriting that converts</div>
+                        <div class="package-feature">Advanced mobile-responsive design</div>
+                        <div class="package-feature">Complete SEO optimization</div>
+                        <div class="package-feature">Lead capture forms & automation</div>
+                        <div class="package-feature">Social media integration</div>
+                        <div class="package-feature">Google Analytics & Search Console</div>
+                        <div class="package-feature">30-day optimization & support period</div>
+                        <div class="package-feature">Launch in 14-21 days</div>
+                    </div>
+                    
+                    <a href="quote.html" class="landing-cta-primary">
+                        Reserve Your Spot
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
                 </div>
                 
-                <a href="quote.html" class="landing-cta-primary">
-                    Reserve Your Spot Today
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m9 18 6-6-6-6"/>
-                    </svg>
-                </a>
+                <!-- Enterprise Package -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-title">Enterprise Solution</h3>
+                        <div class="package-price">$2,500+</div>
+                        <div class="package-subtitle">Custom enterprise-grade websites with advanced features</div>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="package-feature">Unlimited pages with custom functionality</div>
+                        <div class="package-feature">Premium copywriting & content strategy</div>
+                        <div class="package-feature">Custom web application features</div>
+                        <div class="package-feature">Advanced SEO & marketing integration</div>
+                        <div class="package-feature">E-commerce capabilities</div>
+                        <div class="package-feature">User authentication & portals</div>
+                        <div class="package-feature">Database integration & APIs</div>
+                        <div class="package-feature">60-day optimization & support</div>
+                        <div class="package-feature">Priority development (3-4 weeks)</div>
+                    </div>
+                    
+                    <a href="quote.html" class="landing-cta-primary">
+                        Discuss Your Project
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1311,7 +1760,7 @@
         <div class="landing-container">
             <div class="process-header">
                 <h2>Your Website Journey in 3 Simple Steps</h2>
-                <p>From concept to launch in just 21 days</p>
+                <p style="color: white;">From Concept to Launch</p>
             </div>
             
             <div class="process-steps">
@@ -1336,7 +1785,6 @@
             
             <div class="trust-badges">
                 <div class="trust-badge">Google Analytics Certified</div>
-                <div class="trust-badge">WordPress Expert</div>
                 <div class="trust-badge">SEO Specialist</div>
                 <div class="trust-badge">Mobile-First Design</div>
             </div>
@@ -1371,6 +1819,7 @@
             </div>
             
             <div class="showcase-grid">
+                <!-- Sorustic.com - Real Website -->
                 <div class="showcase-item">
                     <div class="showcase-preview">
                         <div class="browser-frame">
@@ -1378,65 +1827,30 @@
                                 <div class="browser-dots">
                                     <span></span><span></span><span></span>
                                 </div>
-                                <div class="browser-url">martinezlaw.com</div>
+                                <div class="browser-url">sorustic.com</div>
                             </div>
-                            <div class="website-preview law-firm">
-                                <div class="preview-header">
-                                    <div class="preview-logo">⚖️ Martinez Law</div>
-                                    <div class="preview-nav">About • Services • Contact</div>
-                                </div>
-                                <div class="preview-hero">
-                                    <h4>Protecting Your Rights</h4>
-                                    <p>Expert legal representation you can trust</p>
-                                    <a href="examples/law-firm.html" target="_blank" class="preview-cta" style="text-decoration: none; color: inherit;">Explore Live Site →</a>
-                                </div>
+                            <div class="website-preview">
+                                <img 
+                                    src="examples/sorustic.com" 
+                                    class="live-preview-screenshot"
+                                    loading="lazy"
+                                    alt="Sorustic Website Preview">
                             </div>
                         </div>
                     </div>
                     <div class="showcase-info">
-                        <h4>Law Firm Website</h4>
-                        <p>Professional legal services site with consultation booking, practice areas, and results tracking. <a href="examples/law-firm.html" target="_blank" style="color: #3b82f6; text-decoration: none; font-weight: 600;">View the live website →</a></p>
+                        <h4>E-commerce Platform</h4>
+                        <p>Modern e-commerce website with advanced product filtering, secure checkout, and inventory management. <a href="https://sorustic.com" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">Visit Live Site →</a></p>
                         <div class="showcase-features">
-                            <span>Contact Forms</span>
-                            <span>Mobile Responsive</span>
-                            <span>SEO Optimized</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="showcase-item">
-                    <div class="showcase-preview">
-                        <div class="browser-frame">
-                            <div class="browser-header">
-                                <div class="browser-dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="browser-url">techfitness.com</div>
-                            </div>
-                            <div class="website-preview fitness">
-                                <div class="preview-header">
-                                    <div class="preview-logo">💪 TechFitness</div>
-                                    <div class="preview-nav">Classes • Trainers • Pricing</div>
-                                </div>
-                                <div class="preview-hero">
-                                    <h4>Transform Your Body</h4>
-                                    <p>Personal training that gets results</p>
-                                    <div class="preview-cta">Start Free Trial</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-info">
-                        <h4>Fitness Studio Website</h4>
-                        <p>Modern fitness site with class scheduling, trainer profiles, and membership management. Boosted membership sign-ups by 250%.</p>
-                        <div class="showcase-features">
-                            <span>Class Booking</span>
+                            <span>E-commerce</span>
                             <span>Payment Integration</span>
-                            <span>Member Portal</span>
+                            <span>Inventory System</span>
+                            <span>Mobile Optimized</span>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Jay VIP Transport -->
                 <div class="showcase-item">
                     <div class="showcase-preview">
                         <div class="browser-frame">
@@ -1444,127 +1858,95 @@
                                 <div class="browser-dots">
                                     <span></span><span></span><span></span>
                                 </div>
-                                <div class="browser-url">skylinerealty.com</div>
+                                <div class="browser-url">jayviptransport.com</div>
                             </div>
-                            <div class="website-preview realty">
-                                <div class="preview-header">
-                                    <div class="preview-logo">🏠 Skyline Realty</div>
-                                    <div class="preview-nav">Buy • Sell • Rent</div>
-                                </div>
-                                <div class="preview-hero">
-                                    <h4>Find Your Dream Home</h4>
-                                    <p>Expert real estate services in your area</p>
-                                    <div class="preview-cta">Search Properties</div>
-                                </div>
+                            <div class="website-preview">
+                                <img 
+                                    src="examples/jayviptransport.png" 
+                                    class="live-preview-screenshot"
+                                    loading="lazy"
+                                    alt="Jay VIP Transport Website Preview">
                             </div>
                         </div>
                     </div>
                     <div class="showcase-info">
-                        <h4>Real Estate Website</h4>
-                        <p>Comprehensive property portal with MLS integration, virtual tours, and lead capture. Generated 300+ qualified leads in 6 months.</p>
-                        <div class="showcase-features">
-                            <span>Property Search</span>
-                            <span>Virtual Tours</span>
-                            <span>Lead Capture</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="showcase-item">
-                    <div class="showcase-preview">
-                        <div class="browser-frame">
-                            <div class="browser-header">
-                                <div class="browser-dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="browser-url">greenleafcafe.com</div>
-                            </div>
-                            <div class="website-preview restaurant">
-                                <div class="preview-header">
-                                    <div class="preview-logo">🍃 GreenLeaf Cafe</div>
-                                    <div class="preview-nav">Menu • Order • About</div>
-                                </div>
-                                <div class="preview-hero">
-                                    <h4>Fresh, Local, Delicious</h4>
-                                    <p>Farm-to-table dining experience</p>
-                                    <div class="preview-cta">Order Online</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-info">
-                        <h4>Restaurant Website</h4>
-                        <p>Appetizing restaurant site with online ordering, menu management, and reservation system. Increased online orders by 400%.</p>
-                        <div class="showcase-features">
-                            <span>Online Ordering</span>
-                            <span>Reservations</span>
-                            <span>Menu Management</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="showcase-item">
-                    <div class="showcase-preview">
-                        <div class="browser-frame">
-                            <div class="browser-header">
-                                <div class="browser-dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="browser-url">innovateconsulting.com</div>
-                            </div>
-                            <div class="website-preview consulting">
-                                <div class="preview-header">
-                                    <div class="preview-logo">💼 InnovateConsulting</div>
-                                    <div class="preview-nav">Services • About • Contact</div>
-                                </div>
-                                <div class="preview-hero">
-                                    <h4>Strategic Business Growth</h4>
-                                    <p>Consulting that drives real results</p>
-                                    <div class="preview-cta">Schedule Call</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-info">
-                        <h4>Business Consulting Site</h4>
-                        <p>Professional consulting website with case studies, resource library, and client testimonials. Generated $500K in new business.</p>
-                        <div class="showcase-features">
-                            <span>Case Studies</span>
-                            <span>Resource Library</span>
-                            <span>Client Portal</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="showcase-item">
-                    <div class="showcase-preview">
-                        <div class="browser-frame">
-                            <div class="browser-header">
-                                <div class="browser-dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="browser-url">luxuryspa.com</div>
-                            </div>
-                            <div class="website-preview spa">
-                                <div class="preview-header">
-                                    <div class="preview-logo">🌸 Serenity Spa</div>
-                                    <div class="preview-nav">Services • Packages • Book</div>
-                                </div>
-                                <div class="preview-hero">
-                                    <h4>Relax & Rejuvenate</h4>
-                                    <p>Luxury spa treatments & wellness</p>
-                                    <div class="preview-cta">Book Appointment</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-info">
-                        <h4>Spa & Wellness Website</h4>
-                        <p>Elegant spa website with online booking, treatment packages, and gift certificate sales. Increased bookings by 160%.</p>
+                        <h4>Transportation Services</h4>
+                        <p>Premium transportation service website with booking system, fleet showcase, and customer management. <a href="https://jayviptransport.com" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">Visit Live Site →</a></p>
                         <div class="showcase-features">
                             <span>Online Booking</span>
-                            <span>Gift Certificates</span>
-                            <span>Package Sales</span>
+                            <span>Fleet Management</span>
+                            <span>Customer Portal</span>
+                            <span>Payment Processing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trading Card Platform -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">cashfortcg.com</div>
+                            </div>
+                            <div class="website-preview">
+                                <img 
+                                    src="examples/cashfortcg.png" 
+                                    class="live-preview-screenshot"
+                                    loading="lazy"
+                                    alt="Cash for TCG Website Preview">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Trading Card Marketplace</h4>
+                        <p>Specialized e-commerce platform for trading card collections with valuation tools and secure transactions. <a href="https://cashfortcg.com" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">Visit Live Site →</a></p>
+                        <div class="showcase-features">
+                            <span>Card Valuation</span>
+                            <span>Secure Trading</span>
+                            <span>Collection Management</span>
+                            <span>Payment Processing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Restaurant & E-commerce -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">restaurant-demo.com</div>
+                            </div>
+                            <div class="website-preview">
+                                <div style="
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background: linear-gradient(135deg, #1e293b, #334155);
+                                    color: #cbd5e1;
+                                    font-size: 1.1rem;
+                                    font-weight: 600;
+                                    border-radius: 8px;
+                                ">
+                                    Example Preview Coming Soon
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Restaurant & E-commerce</h4>
+                        <p>Modern restaurant website with online ordering, menu management, and reservation system. Increased online orders by 340%.</p>
+                        <div class="showcase-features">
+                            <span>Online Ordering</span>
+                            <span>Menu Management</span>
+                            <span>Reservations</span>
+                            <span>Payment Integration</span>
                         </div>
                     </div>
                 </div>
@@ -1590,7 +1972,7 @@
             <p>Get a professional, high-converting website that drives real results for your business. No contracts, no hidden fees, just results.</p>
             
             <div class="pricing-highlight">
-                <div class="price">Starting at $1,000</div>
+                <div class="price">Starting at $500</div>
                 <div class="price-subtitle">Complete website package including design, development, and launch</div>
             </div>
             
@@ -1717,7 +2099,6 @@
                         <a href="index.html#services" class="footer-link">Services</a>
                         <a href="index.html#process" class="footer-link">Process</a>
                         <a href="index.html#why-us" class="footer-link">Why Us</a>
-                        <a href="resources.html" class="footer-link">Resources</a>
                         <a href="quote.html" class="footer-link">Get Quote</a>
                     </nav>
                 </div>
@@ -1758,5 +2139,46 @@
     </footer>
 
     <script src="script-netlify.js"></script>
+    
+    <script>
+        // Dynamic screenshot scroll calculation
+        document.addEventListener('DOMContentLoaded', function() {
+            const screenshots = document.querySelectorAll('.live-preview-screenshot');
+            
+            screenshots.forEach(function(img) {
+                img.addEventListener('load', function() {
+                    calculateScrollDistance(this);
+                });
+                
+                // If image is already loaded
+                if (img.complete) {
+                    calculateScrollDistance(img);
+                }
+            });
+            
+            function calculateScrollDistance(img) {
+                const container = img.closest('.website-preview');
+                const containerHeight = container.offsetHeight;
+                const imageHeight = img.naturalHeight * (container.offsetWidth / img.naturalWidth);
+                
+                // Calculate how much we need to scroll to show the bottom
+                const scrollDistance = imageHeight - containerHeight;
+                const scrollPercentage = (scrollDistance / imageHeight) * 100;
+                
+                // Set custom CSS property for this specific image
+                img.style.setProperty('--scroll-distance', `-${Math.min(scrollPercentage, 85)}%`);
+                
+                // Apply the scroll on hover
+                const showcaseItem = img.closest('.showcase-item');
+                showcaseItem.addEventListener('mouseenter', function() {
+                    img.style.transform = `translateY(${img.style.getPropertyValue('--scroll-distance')})`;
+                });
+                
+                showcaseItem.addEventListener('mouseleave', function() {
+                    img.style.transform = 'translateY(0)';
+                });
+            }
+        });
+    </script>
 </body>
 </html> 

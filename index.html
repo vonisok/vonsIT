@@ -91,6 +91,332 @@
 
       gtag('config', 'G-W58WMGSYS0');
     </script>
+
+    <style>
+        /* Showcase Section Styles */
+        .showcase-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .showcase-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .showcase-header {
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .showcase-header h3 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .showcase-header p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .showcase-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .showcase-item {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 20px;
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .showcase-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, transparent, rgba(255, 255, 255, 0.02));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .showcase-item:hover::before {
+            opacity: 1;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(79, 70, 229, 0.4);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(79, 70, 229, 0.1);
+        }
+
+        .showcase-preview {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .browser-frame {
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(71, 85, 105, 0.2);
+        }
+
+        .browser-header {
+            background: #334155;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .browser-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .browser-dots span:nth-child(1) { background: #ff5f56; }
+        .browser-dots span:nth-child(2) { background: #ffbd2e; }
+        .browser-dots span:nth-child(3) { background: #27ca3f; }
+
+        .browser-url {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Inter', monospace;
+            border: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .website-preview {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .live-preview-screenshot {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 4s ease-in-out;
+            transform: translateY(0);
+        }
+
+        .showcase-info {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            padding: 2rem;
+        }
+
+        .showcase-info h4 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .showcase-info p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .showcase-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .showcase-features span {
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            color: #a78bfa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .showcase-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .showcase-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, transparent, rgba(255, 255, 255, 0.02));
+            pointer-events: none;
+        }
+
+        .showcase-cta h4 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .showcase-cta p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.6;
+        }
+
+        .showcase-cta .cta-button-new {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Mobile Responsiveness for Showcase */
+        @media (max-width: 768px) {
+            .showcase-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .showcase-item {
+                margin: 0 1rem;
+            }
+
+            .showcase-cta {
+                padding: 2rem 1rem;
+                margin: 0 1rem;
+            }
+
+            .website-preview {
+                height: 250px;
+            }
+
+            .browser-header {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .browser-url {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -116,7 +442,6 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#why-us">Why Us</a></li>
-                <li><a href="resources.html">Resources</a></li>
                 <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
             </ul>
             <button class="nav-toggle">☰</button>
@@ -170,7 +495,7 @@
                 <div class="hero-main">
                     <h1 class="hero-title-new">
                         <span class="title-line">We Build</span>
-                        <span class="title-line title-highlight">Digital Experiences</span>
+                        <span class="title-line title-highlight">Websites</span>
                         <span class="title-line">That Perform</span>
                     </h1>
                     
@@ -190,69 +515,122 @@
                 </div>
             </div>
 
-            <!-- Hero Visual - Tech Strip -->
-            <div class="hero-visual">
-                <div class="visual-container">
-                    <!-- Tech Strip -->
-                    <div class="tech-strip">
-                        <div class="tech-strip-label">
-                            <span>Built with</span>
+            <!-- Hero Visual - Modern Animation -->
+            <div class="hero-visual-modern">
+                <div class="modern-container">
+                    <!-- Floating Device Mockups -->
+                    <div class="device-showcase">
+                        <div class="device device-desktop">
+                            <div class="device-screen">
+                                <div class="screen-content">
+                                    <div class="browser-bar">
+                                        <div class="browser-dots">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                        <div class="browser-url">vonsit.com</div>
+                                    </div>
+                                    <div class="website-preview">
+                                        <!-- Mini Navigation -->
+                                        <div class="mini-nav">
+                                            <div class="mini-logo">
+                                                <div class="mini-bracket">&lt;</div>
+                                                <div class="mini-dot"></div>
+                                                <div class="mini-bracket">/&gt;</div>
+                                                <span class="mini-text">vonsIT</span>
+                                            </div>
+                                            <div class="mini-nav-items">
+                                                <div class="mini-nav-item"></div>
+                                                <div class="mini-nav-item"></div>
+                                                <div class="mini-nav-item cta-mini"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Hero Section Preview -->
+                                        <div class="mini-hero">
+                                            <div class="mini-hero-content">
+                                                <div class="mini-badge"></div>
+                                                <div class="mini-title">
+                                                    <div class="mini-title-line"></div>
+                                                    <div class="mini-title-line highlight"></div>
+                                                    <div class="mini-title-line"></div>
+                                                </div>
+                                                <div class="mini-description">
+                                                    <div class="mini-desc-line"></div>
+                                                    <div class="mini-desc-line short"></div>
+                                                </div>
+                                                <div class="mini-cta-button"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Services Preview -->
+                                        <div class="mini-services">
+                                            <div class="mini-service-card"></div>
+                                            <div class="mini-service-card"></div>
+                                            <div class="mini-service-card"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tech-badges">
-                            <div class="tech-badge" data-tech="HTML">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M4.07 3h15.86L18.5 20.36 12 22l-6.5-1.64L4.07 3z"/>
-                                    <path d="M9.5 9.8l.2 2.27h4.8l-.3 3.13L12 16.43l-2.2-.57-.14-1.54H8.5l.26 2.92L12 18.5l3.24-.86.44-4.93H9.2l-.18-2.01h6.76l.18-2.01H9.5z"/>
-                                </svg>
-                                <span>HTML5</span>
-                            </div>
-                            <div class="tech-badge" data-tech="CSS">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M4.192 3.143h15.615l-1.42 16.034-6.404 1.812-6.369-1.813L4.192 3.143z"/>
-                                    <path d="M16.9 6.424l-9.8-.002.158 1.949 7.529.002-.189 2.02H9.66l.179 1.913h4.597l-.272 2.62-2.164.598-2.197-.603-.141-1.569H7.691l.216 2.867L12 17.484l4.092-1.118.777-8.942z"/>
-                                </svg>
-                                <span>CSS3</span>
-                            </div>
-                            <div class="tech-badge" data-tech="JavaScript">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M3 3h18v18H3V3z"/>
-                                    <path d="M7.5 15.5c.83-1.17 1.17-.83 1.5 0s.83 1.17 1.5 0 .67-1.83 1.5-1s1.17.17 1.5 1 .67 1.83 1.5 1 .83-1.17 1.5 0"/>
-                                    <circle cx="12" cy="12" r="2"/>
-                                </svg>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="tech-badge" data-tech="WordPress">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M8.5 11.5L12 8l3.5 3.5L12 15l-3.5-3.5z"/>
-                                    <circle cx="12" cy="12" r="2"/>
-                                </svg>
-                                <span>WordPress</span>
-                            </div>
-                            <div class="tech-badge" data-tech="Elementor">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                    <rect x="7" y="7" width="10" height="2" fill="white"/>
-                                    <rect x="7" y="11" width="6" height="2" fill="white"/>
-                                    <rect x="7" y="15" width="8" height="2" fill="white"/>
-                                </svg>
-                                <span>Elementor</span>
-                            </div>
-                            <div class="tech-badge" data-tech="AI">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <circle cx="12" cy="12" r="3"/>
-                                    <path d="M12 1v6m0 8v6m11-7h-6m-8 0H1m15.5-6.5l-4.24 4.24M7.76 16.24l-4.24 4.24m0-11.48l4.24 4.24m8.48 8.48l4.24-4.24"/>
-                                </svg>
-                                <span>AI Tools</span>
+                        
+                        <div class="device device-mobile">
+                            <div class="device-screen">
+                                <div class="mobile-content">
+                                    <!-- Mobile Header -->
+                                    <div class="mobile-header">
+                                        <div class="mobile-logo">
+                                            <div class="mobile-bracket">&lt;</div>
+                                            <div class="mobile-dot"></div>
+                                            <div class="mobile-bracket">/&gt;</div>
+                                        </div>
+                                        <div class="mobile-menu-btn"></div>
+                                    </div>
+                                    
+                                    <!-- Mobile Hero -->
+                                    <div class="mobile-hero">
+                                        <div class="mobile-badge"></div>
+                                        <div class="mobile-title">
+                                            <div class="mobile-title-line"></div>
+                                            <div class="mobile-title-line highlight"></div>
+                                        </div>
+                                        <div class="mobile-desc"></div>
+                                        <div class="mobile-cta"></div>
+                                    </div>
+                                    
+                                    <!-- Mobile Services -->
+                                    <div class="mobile-services">
+                                        <div class="mobile-service"></div>
+                                        <div class="mobile-service"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Background Elements -->
-                    <div class="visual-elements">
-                        <div class="element element-1"></div>
-                        <div class="element element-2"></div>
-                        <div class="element element-3"></div>
+                    <!-- Animated Particles -->
+                    <div class="particle-system">
+                        <div class="particle particle-1"></div>
+                        <div class="particle particle-2"></div>
+                        <div class="particle particle-3"></div>
+                        <div class="particle particle-4"></div>
+                        <div class="particle particle-5"></div>
+                        <div class="particle particle-6"></div>
+                    </div>
+                    
+                    <!-- Performance Metrics -->
+                    <div class="metrics-display">
+                        <div class="metric">
+                            <div class="metric-value">100</div>
+                            <div class="metric-label">Performance</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">A+</div>
+                            <div class="metric-label">Security</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">&lt;2s</div>
+                            <div class="metric-label">Load Time</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -263,7 +641,7 @@
     <section id="services" class="services-showcase" itemscope itemtype="https://schema.org/Service">
         <div class="services-container">
             <!-- Header Section -->
-            <div class="services-header">
+            <div class="services-header scroll-animate">
                 <span class="services-badge">OUR SERVICES</span>
                 <h2 class="services-title" itemprop="name">Professional Web Development Services We Offer</h2>
                 <p class="services-subtitle">Custom digital solutions to elevate your brand and drive real results.</p>
@@ -272,7 +650,7 @@
             <!-- Services Grid -->
             <div class="services-grid-new">
                 <!-- Service Card 1 -->
-                <div class="service-item" data-service="design">
+                <div class="service-item scroll-animate-stagger" data-service="design">
                     <div class="service-visual">
                         <div class="service-icon-new">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -295,7 +673,7 @@
                 </div>
 
                 <!-- Service Card 2 -->
-                <div class="service-item" data-service="development">
+                <div class="service-item scroll-animate-stagger" data-service="development">
                     <div class="service-visual">
                         <div class="service-icon-new">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -318,7 +696,7 @@
                 </div>
 
                 <!-- Service Card 3 -->
-                <div class="service-item" data-service="branding">
+                <div class="service-item scroll-animate-stagger" data-service="branding">
                     <div class="service-visual">
                         <div class="service-icon-new">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -342,7 +720,7 @@
                 </div>
 
                 <!-- Service Card 4 -->
-                <div class="service-item" data-service="maintenance">
+                <div class="service-item scroll-animate-stagger" data-service="maintenance">
                     <div class="service-visual">
                         <div class="service-icon-new">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -363,10 +741,34 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-item scroll-animate-stagger" data-service="marketing">
+                    <div class="service-visual">
+                        <div class="service-icon-new">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="m19 9-5 5-4-4-3 3"/>
+                                <circle cx="20" cy="4" r="2"/>
+                            </svg>
+                        </div>
+                        <div class="service-pattern"></div>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-number">05</span>
+                        <h3 class="service-name">Digital Marketing</h3>
+                        <p class="service-description">Strategic digital marketing solutions to boost your online presence. Drive traffic, increase conversions, and grow your business with data-driven campaigns.</p>
+                        <div class="service-features">
+                            <span class="feature-tag">SEO Strategy</span>
+                            <span class="feature-tag">Content Marketing</span>
+                            <span class="feature-tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Call to Action -->
-            <div class="services-cta">
+            <div class="services-cta scroll-animate">
                 <p class="cta-text">Ready to elevate your digital presence?</p>
                 <a href="quote.html" class="cta-button-new">
                     <span>Start Your Project</span>
@@ -378,11 +780,181 @@
         </div>
     </section>
 
+    <!-- Showcase Section -->
+    <section class="showcase-section">
+        <div class="container">
+            <div class="showcase-header">
+                <h3>See What We Can Build for Your Business</h3>
+                <p>Professional websites designed to convert visitors into customers</p>
+            </div>
+            
+            <div class="showcase-stats">
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2-4</span>
+                    <div class="stat-label">Week Delivery</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+            
+            <div class="showcase-grid">
+                <!-- Sorustic.com - Real Website -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">sorustic.com</div>
+                            </div>
+                            <div class="website-preview">
+                                <img 
+                                    src="examples/sorustic.com" 
+                                    class="live-preview-screenshot"
+                                    loading="lazy"
+                                    alt="Sorustic Website Preview">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>E-commerce Platform</h4>
+                        <p>Modern e-commerce website with advanced product filtering, secure checkout, and inventory management. <a href="https://sorustic.com" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">Visit Live Site →</a></p>
+                        <div class="showcase-features">
+                            <span>E-commerce</span>
+                            <span>Payment Integration</span>
+                            <span>Inventory System</span>
+                            <span>Mobile Optimized</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jay VIP Transport -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">jayviptransport.com</div>
+                            </div>
+                            <div class="website-preview">
+                                <img 
+                                    src="examples/jayviptransport.png" 
+                                    class="live-preview-screenshot"
+                                    loading="lazy"
+                                    alt="Jay VIP Transport Website Preview">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Transportation Services</h4>
+                        <p>Premium transportation service website with booking system, fleet showcase, and customer management. <a href="https://jayviptransport.com" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">Visit Live Site →</a></p>
+                        <div class="showcase-features">
+                            <span>Online Booking</span>
+                            <span>Fleet Management</span>
+                            <span>Customer Portal</span>
+                            <span>Payment Processing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trading Card Platform -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">cashfortcg.com</div>
+                            </div>
+                            <div class="website-preview">
+                                <img 
+                                    src="examples/cashfortcg.png" 
+                                    class="live-preview-screenshot"
+                                    loading="lazy"
+                                    alt="Cash for TCG Website Preview">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Trading Card Marketplace</h4>
+                        <p>Specialized e-commerce platform for trading card collections with valuation tools and secure transactions. <a href="https://cashfortcg.com" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">Visit Live Site →</a></p>
+                        <div class="showcase-features">
+                            <span>Card Valuation</span>
+                            <span>Secure Trading</span>
+                            <span>Collection Management</span>
+                            <span>Payment Processing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Restaurant & E-commerce -->
+                <div class="showcase-item">
+                    <div class="showcase-preview">
+                        <div class="browser-frame">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">restaurant-demo.com</div>
+                            </div>
+                            <div class="website-preview">
+                                <div style="
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background: linear-gradient(135deg, #1e293b, #334155);
+                                    color: #cbd5e1;
+                                    font-size: 1.1rem;
+                                    font-weight: 600;
+                                    border-radius: 8px;
+                                ">
+                                    Example Preview Coming Soon
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h4>Restaurant & E-commerce</h4>
+                        <p>Modern restaurant website with online ordering, menu management, and reservation system. Increased online orders by 340%.</p>
+                        <div class="showcase-features">
+                            <span>Online Ordering</span>
+                            <span>Menu Management</span>
+                            <span>Reservations</span>
+                            <span>Payment Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-cta">
+                <h4>Ready to See Your Business Online?</h4>
+                <p>We'll create a custom website that's perfect for your industry and goals</p>
+                <a href="quote.html" class="cta-button-new">
+                    <span>Get Your Custom Website Preview</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Process Section -->
     <section id="process" class="process" itemscope itemtype="https://schema.org/Article">
         <div class="container">
-            <header>
-                <h2 itemprop="headline">Our 8-Step Web Development Process</h2>
+            <header class="scroll-animate">
+                <h2 itemprop="headline">Our Simple 4-Step Web Process</h2>
                 <meta itemprop="author" content="vonsIT">
                 <meta itemprop="datePublished" content="2024-01-01">
                 <meta itemprop="dateModified" content="2024-06-07">
@@ -392,48 +964,28 @@
                 </div>
             </header>
             <div class="process-steps">
-                <div class="step">
+                <div class="step scroll-animate-stagger">
                     <div class="step-number">1</div>
-                    <h3>Discovery Call</h3>
-                    <p><strong>We talk goals, budget, and timeline.</strong><br><br>We'll ask the right questions to understand your business, your audience, and what you actually need — no fluff.</p>
+                    <h3>Discover & Plan</h3>
+                    <p>We start with a call to understand your business goals, vision, and audience. Then we collaborate on inspiration, direction, and gather any brand assets you have (or help you create them).</p>
                 </div>
-                <div class="step">
+                <div class="step scroll-animate-stagger">
                     <div class="step-number">2</div>
-                    <h3>Inspiration & Direction</h3>
-                    <p><strong>We align on look, feel, and function.</strong><br><br>We'll show a few examples, gather references, and lock in a direction that fits your brand and your market.</p>
+                    <h3>Visualize & Design</h3>
+                    <p>We transform your ideas into stunning, custom designs—perfectly tailored to your brand and ready for your approval.</p>
                 </div>
-                <div class="step">
+                <div class="step scroll-animate-stagger">
                     <div class="step-number">3</div>
-                    <h3>Brand Assets</h3>
-                    <p><strong>You provide assets, or we build them.</strong><br><br>Already have a logo or color scheme? Great. Need help creating one? We've got that covered too.</p>
+                    <h3>Build & Launch</h3>
+                    <p>Our team codes your site to be fast, secure, and mobile-ready. We keep you updated, then handle a smooth launch—double-checking everything so you go live stress-free.</p>
                 </div>
-                <div class="step">
+                <div class="step scroll-animate-stagger">
                     <div class="step-number">4</div>
-                    <h3>Wireframes / Mockups</h3>
-                    <p><strong>We map out the structure and layout.</strong><br><br>You'll see a rough layout of how everything fits — homepage, services, contact — before we touch a line of code.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Custom Design</h3>
-                    <p><strong>We turn wireframes into visuals.</strong><br><br>Once approved, we apply your branding and make your site beautiful, consistent, and user-friendly.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <h3>Build & Optimize</h3>
-                    <p><strong>We code it clean and fast.</strong><br><br>Fully responsive, SEO-ready, and fast-loading. You'll get progress updates at every major milestone.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">7</div>
-                    <h3>Launch Day</h3>
-                    <p><strong>We handle the launch — stress-free.</strong><br><br>Your site goes live on your domain and we test everything twice. You're officially online.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">8</div>
-                    <h3>Optional Maintenance</h3>
-                    <p><strong>Support, updates, and add-ons.</strong><br><br>Want help keeping your site secure and fresh? We offer flexible ongoing support (totally optional).</p>
+                    <h3>Maintenance Plan</h3>
+                    <p>Keep your site secure, updated, and performing at its best with one of our ongoing maintenance plans. Enjoy peace of mind while we handle backups, updates, and support—so you can focus on your business.</p>
                 </div>
             </div>
-            <p class="process-conclusion"><strong>Your Vision, Our Expertise.</strong></p>
+            <p class="process-conclusion scroll-animate"><strong>Your Vision, Our Expertise.</strong></p>
         </div>
     </section>
 
@@ -441,7 +993,7 @@
     <section id="why-us" class="why-choose-us">
         <div class="why-choose-container">
             <!-- Header Section -->
-            <div class="why-choose-header">
+            <div class="why-choose-header scroll-animate">
                 <span class="why-choose-badge">TRUST & DIFFERENTIATION</span>
                 <h2 class="why-choose-title">Why Choose Us</h2>
                 <p class="why-choose-subtitle">Help visitors understand what makes you better</p>
@@ -450,7 +1002,7 @@
             <!-- Features Grid -->
             <div class="why-choose-grid">
                 <!-- Feature Card 1 -->
-                <div class="why-choose-item" data-feature="custom">
+                <div class="why-choose-item scroll-animate-stagger" data-feature="custom">
                     <div class="why-choose-visual">
                         <div class="why-choose-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -466,45 +1018,10 @@
                     </div>
                 </div>
 
+
+
                 <!-- Feature Card 2 -->
-                <div class="why-choose-item" data-feature="pricing">
-                    <div class="why-choose-visual">
-                        <div class="why-choose-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 1v6m0 0l4-4m-4 4L8 3m13 9a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
-                                <path d="M8 12h8m-8 4h8"/>
-                            </svg>
-                        </div>
-                        <div class="why-choose-pattern"></div>
-                    </div>
-                    <div class="why-choose-content">
-                        <span class="why-choose-number">02</span>
-                        <h3 class="why-choose-name">Transparent Pricing</h3>
-                        <p class="why-choose-description">Clear, upfront pricing with no hidden fees or surprise costs. You'll know exactly what you're paying for before we start.</p>
-                    </div>
-                </div>
-
-                <!-- Feature Card 3 -->
-                <div class="why-choose-item" data-feature="support">
-                    <div class="why-choose-visual">
-                        <div class="why-choose-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="m22 2-5 10-5-5-10 5"/>
-                            </svg>
-                        </div>
-                        <div class="why-choose-pattern"></div>
-                    </div>
-                    <div class="why-choose-content">
-                        <span class="why-choose-number">03</span>
-                        <h3 class="why-choose-name">1-on-1 Support from Day One</h3>
-                        <p class="why-choose-description">Direct access to your dedicated developer throughout the entire project. No middlemen, no confusion, just clear communication.</p>
-                    </div>
-                </div>
-
-                <!-- Feature Card 4 -->
-                <div class="why-choose-item" data-feature="speed">
+                <div class="why-choose-item scroll-animate-stagger" data-feature="speed">
                     <div class="why-choose-visual">
                         <div class="why-choose-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -515,14 +1032,14 @@
                         <div class="why-choose-pattern"></div>
                     </div>
                     <div class="why-choose-content">
-                        <span class="why-choose-number">04</span>
+                        <span class="why-choose-number">02</span>
                         <h3 class="why-choose-name">Fast Turnaround</h3>
                         <p class="why-choose-description">We deliver quality work quickly without cutting corners. Most projects completed within 2-4 weeks depending on scope.</p>
                     </div>
                 </div>
 
-                <!-- Feature Card 5 -->
-                <div class="why-choose-item" data-feature="seo">
+                <!-- Feature Card 3 -->
+                <div class="why-choose-item scroll-animate-stagger" data-feature="seo">
                     <div class="why-choose-visual">
                         <div class="why-choose-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -533,7 +1050,7 @@
                         <div class="why-choose-pattern"></div>
                     </div>
                     <div class="why-choose-content">
-                        <span class="why-choose-number">05</span>
+                        <span class="why-choose-number">03</span>
                         <h3 class="why-choose-name">SEO-Ready Builds</h3>
                         <p class="why-choose-description">Every website is built with search engine optimization in mind from day one. Clean code, fast loading, and mobile-responsive.</p>
                     </div>
@@ -541,7 +1058,7 @@
             </div>
 
             <!-- Call to Action -->
-            <div class="why-choose-cta">
+            <div class="why-choose-cta scroll-animate">
                 <p class="cta-text">Ready to experience the vonsIT difference?</p>
                 <a href="quote.html" class="cta-button-why">
                     <span>Request Your Quote</span>
@@ -579,7 +1096,7 @@
                                 <span class="logo-von">von</span><span class="logo-sit">sIT</span>
                             </div>
                         </a>
-                        <div class="footer-tagline">Digital Experiences That Perform</div>
+                        <div class="footer-tagline">Websites That Perform</div>
                     </div>
                     
                     <div class="footer-contact">
@@ -624,7 +1141,6 @@
                         <a href="#services" class="footer-link">Services</a>
                         <a href="#process" class="footer-link">Process</a>
                         <a href="#why-us" class="footer-link">Why Us</a>
-                        <a href="resources.html" class="footer-link">Resources</a>
                         <a href="quote.html" class="footer-link">Get Quote</a>
                     </nav>
                 </div>
@@ -722,5 +1238,46 @@
 
 
     <script src="script.min.js"></script>
+    
+    <script>
+        // Dynamic screenshot scroll calculation for showcase section
+        document.addEventListener('DOMContentLoaded', function() {
+            const screenshots = document.querySelectorAll('.live-preview-screenshot');
+            
+            screenshots.forEach(function(img) {
+                img.addEventListener('load', function() {
+                    calculateScrollDistance(this);
+                });
+                
+                // If image is already loaded
+                if (img.complete) {
+                    calculateScrollDistance(img);
+                }
+            });
+            
+            function calculateScrollDistance(img) {
+                const container = img.closest('.website-preview');
+                const containerHeight = container.offsetHeight;
+                const imageHeight = img.naturalHeight * (container.offsetWidth / img.naturalWidth);
+                
+                // Calculate how much we need to scroll to show the bottom
+                const scrollDistance = imageHeight - containerHeight;
+                const scrollPercentage = (scrollDistance / imageHeight) * 100;
+                
+                // Set custom CSS property for this specific image
+                img.style.setProperty('--scroll-distance', `-${Math.min(scrollPercentage, 85)}%`);
+                
+                // Apply the scroll on hover
+                const showcaseItem = img.closest('.showcase-item');
+                showcaseItem.addEventListener('mouseenter', function() {
+                    img.style.transform = `translateY(${img.style.getPropertyValue('--scroll-distance')})`;
+                });
+                
+                showcaseItem.addEventListener('mouseleave', function() {
+                    img.style.transform = 'translateY(0)';
+                });
+            }
+        });
+    </script>
 </body>
 </html> 

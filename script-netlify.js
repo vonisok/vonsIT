@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.textContent = 'Sending...';
     
     // Submit to Netlify Forms
-    fetch('/', {
+    fetch('/quote.html', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -102,7 +102,35 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => {
         console.error('Error:', error);
-        showMessage('There was an error sending your message. Please try again or contact von@vonsit.com directly.', 'error');
+        
+        // Fallback: Try standard form submission
+        console.log('Attempting fallback form submission...');
+        
+        // Create a temporary form for standard submission
+        const fallbackForm = document.createElement('form');
+        fallbackForm.method = 'POST';
+        fallbackForm.action = '/quote-confirmed.html';
+        fallbackForm.setAttribute('data-netlify', 'true');
+        fallbackForm.setAttribute('name', 'quote-request');
+        fallbackForm.style.display = 'none';
+        
+        // Add all form data to the fallback form
+        for (let [key, value] of formData.entries()) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            fallbackForm.appendChild(input);
+        }
+        
+        document.body.appendChild(fallbackForm);
+        
+        try {
+            fallbackForm.submit();
+        } catch (fallbackError) {
+            console.error('Fallback submission failed:', fallbackError);
+            showMessage('There was an error sending your message. Please try again or contact von@vonsit.com directly.', 'error');
+        }
     })
     .finally(() => {
         // Reset button state
