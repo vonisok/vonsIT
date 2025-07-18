@@ -1338,97 +1338,12 @@
             font-size: 1rem;
         }
 
-        /* FAQ Styles */
-        .faq-section {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #0a0f1c 0%, #1a1d29 50%, #0f172a 100%);
-            position: relative;
-            overflow: hidden;
-        }
 
-        .faq-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.06) 0%, transparent 45%);
-            opacity: 0.9;
-            pointer-events: none;
-        }
-
-        .faq-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .faq-header h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .faq-item {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .faq-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.02));
-            pointer-events: none;
-        }
-
-        .faq-question {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.75rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .faq-answer {
-            color: #cbd5e1;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
 
         @media (max-width: 768px) {
             .process-steps {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
-            }
-
-            .faq-grid {
-                grid-template-columns: 1fr;
             }
 
             .trust-badges {
@@ -1995,47 +1910,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="landing-container">
-            <div class="faq-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Everything you need to know about working with vonsIT</p>
-            </div>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4 class="faq-question">What platforms do you build websites on?</h4>
-                    <p class="faq-answer">We primarily build custom websites using modern technologies like HTML5, CSS3, and JavaScript. For content management, we specialize in WordPress and can also work with other platforms based on your specific needs.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4 class="faq-question">Do you provide hosting services?</h4>
-                    <p class="faq-answer">Yes! We can arrange reliable, fast hosting for your website or work with your existing hosting provider. We'll recommend the best solution based on your needs and budget.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4 class="faq-question">What if I need changes after the website is live?</h4>
-                    <p class="faq-answer">Your package includes 30 days of optimization and support after launch. For ongoing changes beyond that, we offer flexible maintenance packages starting at $200/month.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4 class="faq-question">Can you help with content and copywriting?</h4>
-                    <p class="faq-answer">Absolutely! Professional copywriting is included in our package. We'll create compelling content that speaks to your audience and drives conversions.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4 class="faq-question">How do you ensure my website will rank on Google?</h4>
-                    <p class="faq-answer">Every website includes basic SEO setup: optimized page titles, meta descriptions, proper heading structure, fast loading speeds, and mobile responsiveness - all ranking factors Google loves.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4 class="faq-question">What happens if I'm not satisfied with the design?</h4>
-                    <p class="faq-answer">We include unlimited revisions during the design phase. We won't move forward until you're completely happy with the look and functionality of your website.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <footer class="footer-new">
         <div class="footer-background">
