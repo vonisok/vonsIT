@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Professional Web Development Services - vonsIT | Custom Design & Development</title>
+    <meta name="description" content="Professional web development services including custom design, WordPress development, e-commerce solutions, and digital marketing. Get expert web development with modern technologies and responsive design.">
+    <meta name="keywords" content="web development services, custom web design, WordPress development, e-commerce development, responsive design, UI UX design, web applications, mobile development, digital marketing services, SEO optimization">
+    <meta name="author" content="vonsIT">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://vonsit.com/services.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vonsit.com/services.html">
+    <meta property="og:title" content="Professional Web Development Services - vonsIT">
+    <meta property="og:description" content="Custom web design, development, and digital marketing services. Transform your business with professional websites that perform and convert.">
+    <meta property="og:image" content="https://vonsit.com/og-image.jpg">
+    <meta property="og:site_name" content="vonsIT">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vonsit.com/services.html">
+    <meta name="twitter:title" content="Professional Web Development Services - vonsIT">
+    <meta name="twitter:description" content="Custom web design, development, and digital marketing services. Professional websites that perform and convert.">
+    <meta name="twitter:image" content="https://vonsit.com/og-image.jpg">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Services Page Specific Styles */
+        .services-hero {
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1d29 50%, #0f172a 100%);
+            min-height: 70vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .services-hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-hero-content {
+            text-align: center;
+            color: white;
+        }
+
+        .services-hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(236, 72, 153, 0.2));
+            border: 1px solid rgba(79, 70, 229, 0.3);
+            color: #a78bfa;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .services-hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* Service Section Styling */
+        .service-section {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-section:nth-child(even) {
+            background: linear-gradient(135deg, #0a0f1c 0%, #1e293b 100%);
+        }
+
+        .service-section:nth-child(odd) {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        .service-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .service-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: center;
+        }
+
+        .service-content.reverse {
+            direction: rtl;
+        }
+
+        .service-content.reverse > * {
+            direction: ltr;
+        }
+
+        .service-text {
+            color: white;
+        }
+
+        .service-badge {
+            display: inline-block;
+            background: rgba(79, 70, 229, 0.15);
+            border: 1px solid rgba(79, 70, 229, 0.3);
+            color: #a5b4fc;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-description {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+        }
+
+        .service-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-cta:hover::before {
+            left: 100%;
+        }
+
+        .service-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(79, 70, 229, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .service-cta svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        .service-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Custom Design Section - iPhone Layout */
+        .service-visual.custom-design {
+            position: relative;
+            background-image: url('./images/iphone.png');
+            background-size: auto 90%;
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+
+        .service-visual.custom-design::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .design-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            width: 120px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 25%;
+            left: 30%;
+            width: 80px;
+            height: 60px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(2deg); opacity: 0.9; }
+        }
+
+        /* Development Visual - Custom Animation */
+        .service-visual.development {
+            position: relative;
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 2rem;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-visual.development::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Development Animation Elements */
+        .dev-animation {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .code-blocks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .code-block {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: codeBlockFloat 4s ease-in-out infinite;
+        }
+
+        .code-block:nth-child(1) { animation-delay: 0s; }
+        .code-block:nth-child(2) { animation-delay: 0.5s; }
+        .code-block:nth-child(3) { animation-delay: 1s; }
+        .code-block:nth-child(4) { animation-delay: 1.5s; }
+        .code-block:nth-child(5) { animation-delay: 2s; }
+        .code-block:nth-child(6) { animation-delay: 2.5s; }
+
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+            animation: codeBlockScan 3s ease-in-out infinite;
+            animation-delay: inherit;
+        }
+
+        .code-symbol {
+            color: #a78bfa;
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            animation: symbolPulse 2s ease-in-out infinite;
+        }
+
+        .dev-center-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.3);
+            animation: centerIconPulse 3s ease-in-out infinite;
+        }
+
+        .dev-center-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        @keyframes codeBlockFloat {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                border-color: rgba(99, 102, 241, 0.3);
+            }
+            50% { 
+                transform: translateY(-10px) scale(1.05);
+                border-color: rgba(99, 102, 241, 0.6);
+            }
+        }
+
+        @keyframes codeBlockScan {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes symbolPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        @keyframes centerIconPulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 20px 40px rgba(79, 70, 229, 0.3);
+            }
+            50% { 
+                transform: scale(1.1) rotate(180deg);
+                box-shadow: 0 25px 50px rgba(79, 70, 229, 0.5);
+            }
+        }
+
+        /* E-commerce Visual */
+        .ecommerce-visual {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 2rem;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .product-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* Digital Marketing Visual */
+        .marketing-visual {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 2rem;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: end;
+            justify-content: space-around;
+            height: 100%;
+            gap: 1rem;
+        }
+
+        .chart-bar {
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            border-radius: 0.25rem;
+            width: 40px;
+            transition: all 0.3s ease;
+            animation: growBar 2s ease forwards;
+            transform-origin: bottom;
+            transform: scaleY(0);
+        }
+
+        .chart-bar:nth-child(1) { animation-delay: 0.5s; }
+        .chart-bar:nth-child(2) { animation-delay: 0.7s; }
+        .chart-bar:nth-child(3) { animation-delay: 0.9s; }
+        .chart-bar:nth-child(4) { animation-delay: 1.1s; }
+
+        @keyframes growBar {
+            to { transform: scaleY(1); }
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #94a3b8;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Maintenance Visual */
+        .maintenance-visual {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 2rem;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .shield-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .shield-icon svg {
+            width: 60px;
+            height: 60px;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 25px 50px rgba(16, 185, 129, 0.5); }
+        }
+
+        .status-indicators {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .status-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        .status-dot:nth-child(1) { animation-delay: 0s; }
+        .status-dot:nth-child(2) { animation-delay: 0.5s; }
+        .status-dot:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .status-label {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-hero {
+                min-height: 60vh;
+                padding-top: 4rem;
+            }
+
+            .service-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .service-content.reverse {
+                direction: ltr;
+            }
+
+            .service-visual {
+                height: 400px;
+            }
+
+            .service-visual.custom-design {
+                background-position: center center;
+                background-size: 70%;
+            }
+
+            .dev-animation {
+                gap: 1.5rem;
+            }
+
+            .code-blocks {
+                grid-template-columns: repeat(2, 1fr);
+                width: 90%;
+            }
+
+            .floating-element {
+                display: none;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .status-indicators {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .chart-bars {
+                gap: 0.5rem;
+            }
+
+            .chart-bar {
+                width: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-section {
+                padding: clamp(3rem, 6vw, 4rem) 0;
+            }
+
+            .service-container {
+                padding: 0 1rem;
+            }
+
+            .service-visual {
+                height: 300px;
+            }
+
+            .service-visual.custom-design {
+                background-position: center center;
+                background-size: 60%;
+            }
+
+            .dev-animation {
+                gap: 1rem;
+            }
+
+            .code-blocks {
+                grid-template-columns: repeat(2, 1fr);
+                width: 95%;
+                gap: 0.75rem;
+            }
+
+            .dev-center-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .dev-center-icon svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .shield-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .shield-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <div class="bracket-left">&lt;</div>
+                        <div class="logo-dot"></div>
+                        <div class="bracket-right">/&gt;</div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#why-us">Why Us</a></li>
+                <li><a href="quote.html" class="nav-cta">Get a Quote</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-container">
+            <div class="services-hero-content">
+                <span class="services-hero-badge">Our Services</span>
+                <h1 class="services-hero-title">Professional Web Development Services</h1>
+                <p class="services-hero-subtitle">
+                    Transform your digital presence with our comprehensive web development and design services. 
+                    From custom websites to e-commerce solutions, we deliver results that matter.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Design Section -->
+    <section class="service-section" id="custom-design">
+        <div class="service-container">
+            <div class="service-content">
+                <div class="service-text">
+                    <span class="service-badge">01 - Design</span>
+                    <h2 class="service-title">Custom Web Design</h2>
+                    <p class="service-description">
+                        We create stunning, bespoke websites that capture your brand's essence and resonate with your target audience. 
+                        Every design is crafted from scratch, ensuring your online presence stands out from the competition.
+                    </p>
+                    <ul class="service-features">
+                        <li>UI/UX Design Strategy</li>
+                        <li>Mobile-First Responsive Design</li>
+                        <li>Brand Identity Integration</li>
+                        <li>User Experience Optimization</li>
+                        <li>Visual Hierarchy & Typography</li>
+                        <li>Color Psychology & Brand Alignment</li>
+                    </ul>
+                    <a href="quote.html" class="service-cta">
+                        <span>Start Your Design Project</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-visual custom-design">
+                    <div class="design-elements">
+                        <div class="floating-element"></div>
+                        <div class="floating-element"></div>
+                        <div class="floating-element"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Development Section -->
+    <section class="service-section" id="web-development">
+        <div class="service-container">
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <span class="service-badge">02 - Development</span>
+                    <h2 class="service-title">Web Development</h2>
+                    <p class="service-description">
+                        High-performance websites built with modern technologies and clean, maintainable code. 
+                        We focus on speed, security, and scalability to ensure your website performs flawlessly.
+                    </p>
+                    <ul class="service-features">
+                        <li>Custom HTML5, CSS3 & JavaScript</li>
+                        <li>React & Next.js Applications</li>
+                        <li>WordPress & CMS Development</li>
+                        <li>API Integration & Development</li>
+                        <li>Performance Optimization</li>
+                        <li>Security Best Practices</li>
+                    </ul>
+                    <a href="quote.html" class="service-cta">
+                        <span>Get Development Quote</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-visual development">
+                    <div class="dev-animation">
+                        <div class="code-blocks">
+                            <div class="code-block">
+                                <div class="code-symbol">&lt;/&gt;</div>
+                            </div>
+                            <div class="code-block">
+                                <div class="code-symbol">{ }</div>
+                            </div>
+                            <div class="code-block">
+                                <div class="code-symbol">[ ]</div>
+                            </div>
+                            <div class="code-block">
+                                <div class="code-symbol">fn()</div>
+                            </div>
+                            <div class="code-block">
+                                <div class="code-symbol">⚡</div>
+                            </div>
+                            <div class="code-block">
+                                <div class="code-symbol">∞</div>
+                            </div>
+                        </div>
+                        <div class="dev-center-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16,18 22,12 16,6"/>
+                                <polyline points="8,6 2,12 8,18"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-commerce Development Section -->
+    <section class="service-section" id="ecommerce">
+        <div class="service-container">
+            <div class="service-content">
+                <div class="service-text">
+                    <span class="service-badge">03 - E-commerce</span>
+                    <h2 class="service-title">E-commerce Solutions</h2>
+                    <p class="service-description">
+                        Complete e-commerce platforms that drive sales and provide exceptional shopping experiences. 
+                        From product catalogs to secure payment processing, we build stores that convert.
+                    </p>
+                    <ul class="service-features">
+                        <li>Custom E-commerce Development</li>
+                        <li>WooCommerce & Shopify</li>
+                        <li>Payment Gateway Integration</li>
+                        <li>Inventory Management Systems</li>
+                        <li>Shopping Cart Optimization</li>
+                        <li>Order & Customer Management</li>
+                    </ul>
+                    <a href="quote.html" class="service-cta">
+                        <span>Build Your Store</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-visual">
+                    <div class="ecommerce-visual">
+                        <div class="product-card">
+                            <div class="product-image">🛍️</div>
+                            <div class="product-title">Premium Product</div>
+                            <div class="product-price">$99.99</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">📱</div>
+                            <div class="product-title">Tech Gadget</div>
+                            <div class="product-price">$299.99</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">👕</div>
+                            <div class="product-title">Fashion Item</div>
+                            <div class="product-price">$49.99</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing Section -->
+    <section class="service-section" id="digital-marketing">
+        <div class="service-container">
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <span class="service-badge">04 - Marketing</span>
+                    <h2 class="service-title">Digital Marketing</h2>
+                    <p class="service-description">
+                        Strategic digital marketing solutions to boost your online presence and drive qualified traffic. 
+                        We help you reach your target audience and convert visitors into customers.
+                    </p>
+                    <ul class="service-features">
+                        <li>SEO Strategy & Implementation</li>
+                        <li>Content Marketing & Copywriting</li>
+                        <li>Social Media Management</li>
+                        <li>Google Ads & PPC Campaigns</li>
+                        <li>Analytics & Performance Tracking</li>
+                        <li>Email Marketing Automation</li>
+                    </ul>
+                    <a href="quote.html" class="service-cta">
+                        <span>Grow Your Business</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-visual">
+                    <div class="marketing-visual">
+                        <div class="chart-container">
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="height: 60%;"></div>
+                                <div class="chart-bar" style="height: 80%;"></div>
+                                <div class="chart-bar" style="height: 90%;"></div>
+                                <div class="chart-bar" style="height: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-value">150%</div>
+                                <div class="metric-label">Traffic Growth</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">89%</div>
+                                <div class="metric-label">Conversion Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Maintenance Section -->
+    <section class="service-section" id="maintenance">
+        <div class="service-container">
+            <div class="service-content">
+                <div class="service-text">
+                    <span class="service-badge">05 - Support</span>
+                    <h2 class="service-title">Website Maintenance</h2>
+                    <p class="service-description">
+                        Keep your website secure, updated, and performing at its best with our comprehensive maintenance services. 
+                        Focus on your business while we handle the technical details.
+                    </p>
+                    <ul class="service-features">
+                        <li>Security Updates & Monitoring</li>
+                        <li>Regular Backups & Recovery</li>
+                        <li>Performance Optimization</li>
+                        <li>Content Updates & Management</li>
+                        <li>24/7 Technical Support</li>
+                        <li>Uptime Monitoring & Alerts</li>
+                    </ul>
+                    <a href="quote.html" class="service-cta">
+                        <span>Secure Your Website</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-visual">
+                    <div class="maintenance-visual">
+                        <div class="shield-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="status-indicators">
+                            <div class="status-item">
+                                <div class="status-dot"></div>
+                                <div class="status-label">Security</div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-dot"></div>
+                                <div class="status-label">Performance</div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-dot"></div>
+                                <div class="status-label">Uptime</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-new">
+        <div class="footer-background">
+            <div class="footer-shapes">
+                <div class="footer-shape footer-shape-1"></div>
+                <div class="footer-shape footer-shape-2"></div>
+                <div class="footer-shape footer-shape-3"></div>
+            </div>
+        </div>
+        
+        <div class="footer-container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <!-- Brand Section -->
+                <div class="footer-brand-section">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo footer-logo-style">
+                            <div class="logo-icon">
+                                <div class="bracket-left">&lt;</div>
+                                <div class="logo-dot"></div>
+                                <div class="bracket-right">/&gt;</div>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-von">von</span><span class="logo-sit">sIT</span>
+                            </div>
+                        </a>
+                        <div class="footer-tagline">Websites That Perform</div>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    <polyline points="3.29,7 12,12 20.71,7"/>
+                                    <line x1="12" y1="22" x2="12" y2="12"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Website</span>
+                                <span class="contact-value">vonsIT.com</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:von@vonsit.com" class="contact-value contact-link">von@vonsit.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Section -->
+                <div class="footer-nav-section">
+                    <h4 class="footer-nav-title">Quick Links</h4>
+                    <nav class="footer-nav-links">
+                        <a href="index.html#services" class="footer-link">Services</a>
+                        <a href="index.html#process" class="footer-link">Process</a>
+                        <a href="index.html#why-us" class="footer-link">Why Us</a>
+                        <a href="quote.html" class="footer-link">Get Quote</a>
+                    </nav>
+                </div>
+                
+                <!-- Legal Section -->
+                <div class="footer-nav-section">
+                    <h4 class="footer-nav-title">Legal</h4>
+                    <nav class="footer-nav-links">
+                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+                    </nav>
+                </div>
+                
+                <!-- CTA Section -->
+                <div class="footer-cta-section">
+                    <div class="footer-cta-content">
+                        <h4 class="footer-cta-title">Ready to Start?</h4>
+                        <p class="footer-cta-subtitle">Let's build something amazing together</p>
+                        <a href="quote.html" class="footer-cta-button">
+                            <span>Request Your Quote</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-copyright">
+                    <span>&copy; 2024 vonsIT. All rights reserved.</span>
+                    <div class="footer-status">
+                        <div class="status-indicator"></div>
+                        <span>Available for New Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.min.js"></script>
+</body>
+</html>
