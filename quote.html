@@ -442,5 +442,14 @@
     </script>
     <script src="/script.min.js"></script>
     <script src="/script-netlify.js"></script>
+    <script>
+        // Override body opacity issue from script-netlify.js
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '1';
+        });
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
 </body>
 </html>

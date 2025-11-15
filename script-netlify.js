@@ -274,24 +274,39 @@ if (navToggle && navMenu) {
     });
 }
 
-// Header scroll effect
+// Header scroll effect - only apply to pages with light backgrounds
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
     if (header) {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
+        // Check if we're on a dark-themed page (like quote.html)
+        const isDarkPage = document.body.classList.contains('radial') || 
+                           document.body.classList.contains('min-h-screen') ||
+                           window.location.pathname.includes('quote');
+        
+        if (!isDarkPage) {
+            // Only apply white header styles on light pages
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
         }
     }
 });
 
-// Page loading animation
-document.body.style.opacity = '0';
-
+// Page loading animation - only apply to pages that don't have dark backgrounds
 window.addEventListener('load', function() {
-    document.body.style.opacity = '1';
-    document.body.style.transition = 'opacity 0.5s ease';
+    const isDarkPage = document.body.classList.contains('radial') || 
+                       document.body.classList.contains('min-h-screen') ||
+                       window.location.pathname.includes('quote');
+    
+    if (!isDarkPage) {
+        document.body.style.opacity = '1';
+        document.body.style.transition = 'opacity 0.5s ease';
+    } else {
+        // Ensure dark pages are always visible
+        document.body.style.opacity = '1';
+    }
 }); 
