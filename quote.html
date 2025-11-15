@@ -109,6 +109,39 @@
       }
       .nav {
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+      }
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      /* Footer icon sizing */
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+      }
+      .contact-icon svg {
+        width: 20px;
+        height: 20px;
       }
       /* Add padding for fixed header */
       body {
@@ -117,6 +150,12 @@
       @media (max-width: 768px) {
         body {
           padding-top: 70px;
+        }
+        .nav-menu {
+          display: none;
+        }
+        .nav-toggle {
+          display: block;
         }
         /* Mobile menu styles for dark background */
         .nav-menu.active {
@@ -132,6 +171,7 @@
           padding: 1rem 2rem;
           gap: 1rem;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+          z-index: 1000;
         }
         .nav-menu.active li {
           width: 100%;
