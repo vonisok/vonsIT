@@ -28,11 +28,12 @@
     <meta name="twitter:image" content="https://vonsit.com/og-image.jpg">
     
     <!-- Favicon and Icons -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="VonsIT" />
+    <link rel="manifest" href="/images/site.webmanifest" />
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
@@ -808,15 +809,8 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <div class="bracket-left">&lt;</div>
-                        <div class="logo-dot"></div>
-                        <div class="bracket-right">/&gt;</div>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-von">von</span><span class="logo-sit">sIT</span>
-                    </div>
+                <a href="index.html#home" class="logo">
+                    <img src="images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
                 </a>
             </div>
             <ul class="nav-menu">
@@ -1111,15 +1105,8 @@
                 <!-- Brand Section -->
                 <div class="footer-brand-section">
                     <div class="footer-logo">
-                        <a href="index.html" class="logo footer-logo-style">
-                            <div class="logo-icon">
-                                <div class="bracket-left">&lt;</div>
-                                <div class="logo-dot"></div>
-                                <div class="bracket-right">/&gt;</div>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-von">von</span><span class="logo-sit">sIT</span>
-                            </div>
+                        <a href="index.html#home" class="logo footer-logo-style">
+                            <img src="images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
                         </a>
                         <div class="footer-tagline">Websites That Perform</div>
                     </div>
@@ -1139,7 +1126,7 @@
                             </div>
                         </div>
                         
-                        <div class="contact-item">
+                        <div class="contact-item" itemscope itemtype="https://schema.org/ContactPoint">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -1148,8 +1135,13 @@
                             </div>
                             <div class="contact-details">
                                 <span class="contact-label">Email</span>
-                                <a href="mailto:von@vonsit.com" class="contact-value contact-link">von@vonsit.com</a>
+                                <a href="mailto:von@vonsit.com" class="contact-value contact-link" itemprop="email" rel="noopener">von@vonsit.com</a>
                             </div>
+                        </div>
+                        
+                        <!-- Social Media Links for SEO -->
+                        <div class="social-links" style="margin-top: 1rem;">
+                            
                         </div>
                     </div>
                 </div>
@@ -1193,7 +1185,7 @@
             <div class="footer-bottom">
                 <div class="footer-divider"></div>
                 <div class="footer-copyright">
-                    <span>&copy; 2024 vonsIT. All rights reserved.</span>
+                    <span>&copy; 2025 vonsIT. All rights reserved.</span>
                     <div class="footer-status">
                         <div class="status-indicator"></div>
                         <span>Available for New Projects</span>

@@ -42,12 +42,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Favicon and Icons -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="VonsIT" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href="/images/site.webmanifest" />
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
@@ -93,6 +93,66 @@
     </script>
 
     <style>
+        /* Header styling for dark background */
+        .header {
+            background: rgba(11, 16, 32, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header.scrolled {
+            background: rgba(11, 16, 32, 0.98) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .nav-menu a {
+            color: #e2e8f0 !important;
+        }
+        .nav-menu a:hover {
+            color: #a78bfa !important;
+        }
+        .logo-von {
+            color: #e2e8f0 !important;
+        }
+        .nav-toggle {
+            color: #e2e8f0 !important;
+        }
+        .nav {
+            position: relative;
+        }
+        /* Add padding for fixed header */
+        body {
+            padding-top: 80px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            /* Mobile menu styles for dark background */
+            .nav-menu.active {
+                display: flex !important;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(11, 16, 32, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 1rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+            .nav-menu.active li {
+                width: 100%;
+            }
+            .nav-menu.active a {
+                display: block;
+                padding: 0.75rem 0;
+                width: 100%;
+            }
+        }
+
         /* Showcase Section Styles */
         .showcase-section {
             padding: 6rem 0;
@@ -428,14 +488,7 @@
         <nav class="nav">
             <div class="nav-brand">
                 <a href="#home" class="logo">
-                    <div class="logo-icon">
-                        <div class="bracket-left">&lt;</div>
-                        <div class="logo-dot"></div>
-                        <div class="bracket-right">/&gt;</div>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-von">von</span><span class="logo-sit">sIT</span>
-                    </div>
+                    <img src="images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
                 </a>
             </div>
             <ul class="nav-menu">
@@ -765,6 +818,34 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-item scroll-animate-stagger" data-service="ai-automation">
+                    <div class="service-visual">
+                        <div class="service-icon-new">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="8" cy="8" r="3"/>
+                                <circle cx="16" cy="8" r="3"/>
+                                <circle cx="8" cy="16" r="3"/>
+                                <circle cx="16" cy="16" r="3"/>
+                                <path d="M11 8h2M11 16h2M8 11v2M16 11v2"/>
+                                <path d="M10.5 9.5l3 3M13.5 9.5l-3 3M10.5 14.5l3-3M13.5 14.5l-3-3"/>
+                            </svg>
+                        </div>
+                        <div class="service-pattern"></div>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-number">06</span>
+                        <h3 class="service-name">AI Automation</h3>
+                        <p class="service-description">Leverage intelligent automation to streamline workflows, reduce manual tasks, and supercharge productivity. We build custom AI integrations that connect your tools and deliver real business impact.</p>
+                        <div class="service-features">
+                            <span class="feature-tag">AI Workflows</span>
+                            <span class="feature-tag">Automation Systems</span>
+                            <span class="feature-tag">Chatbot Integration</span>
+                            <span class="feature-tag">Process Optimization</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Call to Action -->
@@ -1079,14 +1160,7 @@
                 <div class="footer-brand-section">
                     <div class="footer-logo">
                         <a href="#home" class="logo footer-logo-style">
-                            <div class="logo-icon">
-                                <div class="bracket-left">&lt;</div>
-                                <div class="logo-dot"></div>
-                                <div class="bracket-right">/&gt;</div>
-                            </div>
-                            <div class="logo-text">
-                                <span class="logo-von">von</span><span class="logo-sit">sIT</span>
-                            </div>
+                            <img src="images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
                         </a>
                         <div class="footer-tagline">Websites That Perform</div>
                     </div>
@@ -1165,7 +1239,7 @@
             <div class="footer-bottom">
                 <div class="footer-divider"></div>
                 <div class="footer-copyright">
-                    <span>&copy; 2024 vonsIT. All rights reserved.</span>
+                    <span>&copy; 2025 vonsIT. All rights reserved.</span>
                     <div class="footer-status">
                         <div class="status-indicator"></div>
                         <span>Available for New Projects</span>

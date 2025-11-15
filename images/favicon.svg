@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <!-- Main gradient matching your logo -->
+    <linearGradient id="SvgjsLinearGradient1009" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"></stop>
+      <stop offset="50%" style="stop-color:#764ba2"></stop>
+      <stop offset="100%" style="stop-color:#f093fb"></stop>
+    </linearGradient>
+    
+    <!-- Inner highlight for depth -->
+    <linearGradient id="SvgjsLinearGradient1008" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.3)"></stop>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.1)"></stop>
+    </linearGradient>
+    
+    <!-- Dot gradient for better visibility -->
+    <radialGradient id="SvgjsRadialGradient1007" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#ffffff"></stop>
+      <stop offset="100%" style="stop-color:#f0f9ff"></stop>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background with rounded corners matching your logo -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"></rect>
+  
+  <!-- Inner highlight for 3D effect -->
+  <rect x="1" y="1" width="30" height="30" rx="6" fill="url(#highlight)" opacity="0.4"></rect>
+  
+  <!-- Left bracket < -->
+  <text x="5" y="20" fill="white" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" font-weight="800" text-anchor="start">&lt;</text>
+  
+  <!-- Right bracket /> -->
+  <text x="27" y="20" fill="white" font-family="SF Mono, Monaco, Consolas, monospace" font-size="10" font-weight="800" text-anchor="end">/&gt;</text>
+  
+  <!-- Center dot with gradient and glow -->
+  <circle cx="16" cy="16" r="2.5" fill="url(#dotGrad)" opacity="0.9"></circle>
+  <circle cx="16" cy="16" r="1.5" fill="white"></circle>
+  
+  <!-- Subtle outer glow -->
+  <rect width="32" height="32" rx="7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"></rect>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

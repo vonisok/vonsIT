@@ -15,13 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const formData = new FormData(form);
     
     // Get form values for validation and UX
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    const projectType = formData.get('project-type').trim();
-    const budgetRange = formData.get('budget-range').trim();
+    const name = formData.get('name')?.trim() || '';
+    const email = formData.get('email')?.trim() || '';
+    const projectDetails = formData.get('project-details')?.trim() || '';
+    const projectType = formData.get('project-type')?.trim() || '';
+    const budgetRange = formData.get('budget-range')?.trim() || '';
     
-    // Enhanced validation
-    if (!name || !email || !projectType || !budgetRange) {
+    // Enhanced validation - only require name, email, and project details
+    if (!name || !email || !projectDetails) {
         showMessage('Please fill in all required fields (marked with *)', 'error');
         return;
     }
@@ -37,9 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
     showMessage('Sending your request...', 'loading');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
+    submitBtn.style.opacity = '0.7';
     
     // Submit to Netlify Forms
-    fetch('/quote.html', {
+    // POST to the current page where the form exists (Netlify requirement for JS submissions)
+    fetch(window.location.pathname, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -58,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 gtag('event', 'form_submit', {
                     event_category: 'engagement',
                     event_label: 'quote_request',
-                    value: budgetRange
+                    value: 1
                 });
                 
                 // Google Ads conversion tracking - DISABLED until conversion ID is configured
@@ -73,14 +76,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 */
                 
                 // Enhanced conversion tracking (more detailed)
-                gtag('event', 'generate_lead', {
+                const analyticsData = {
                     'currency': 'USD',
                     'value': 1.0,
                     'event_category': 'ecommerce',
-                    'event_label': 'quote_request_submission',
-                    'project_type': projectType,
-                    'budget_range': budgetRange
-                });
+                    'event_label': 'quote_request_submission'
+                };
+                
+                // Add optional fields if they exist
+                if (projectType) analyticsData.project_type = projectType;
+                if (budgetRange) analyticsData.budget_range = budgetRange;
+                
+                gtag('event', 'generate_lead', analyticsData);
             }
             
             // Generate random token and redirect to confirmation page
@@ -135,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .finally(() => {
         // Reset button state
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Get My Custom Quote →';
+        submitBtn.textContent = 'Get My Quote';
+        submitBtn.style.opacity = '1';
     });
     });
 });

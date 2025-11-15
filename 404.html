@@ -8,12 +8,12 @@
     <meta name="robots" content="noindex, nofollow">
     
     <!-- Favicon and Icons -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="VonsIT" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href="/images/site.webmanifest" />
     
     <!-- Stylesheets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +28,66 @@
 
     
     <style>
+        /* Header styling for dark background */
+        .header {
+            background: rgba(11, 16, 32, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header.scrolled {
+            background: rgba(11, 16, 32, 0.98) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .nav-menu a {
+            color: #e2e8f0 !important;
+        }
+        .nav-menu a:hover {
+            color: #a78bfa !important;
+        }
+        .logo-von {
+            color: #e2e8f0 !important;
+        }
+        .nav-toggle {
+            color: #e2e8f0 !important;
+        }
+        .nav {
+            position: relative;
+        }
+        /* Add padding for fixed header */
+        body {
+            padding-top: 80px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            /* Mobile menu styles for dark background */
+            .nav-menu.active {
+                display: flex !important;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(11, 16, 32, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 1rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+            .nav-menu.active li {
+                width: 100%;
+            }
+            .nav-menu.active a {
+                display: block;
+                padding: 0.75rem 0;
+                width: 100%;
+            }
+        }
+
         .error-page {
             min-height: 100vh;
             background: linear-gradient(135deg, #0a0f1c 0%, #1a1d29 50%, #0f172a 100%);
@@ -234,15 +294,8 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <a href="/" class="logo">
-                    <div class="logo-icon">
-                        <div class="bracket-left">&lt;</div>
-                        <div class="logo-dot"></div>
-                        <div class="bracket-right">/&gt;</div>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-von">von</span><span class="logo-sit">sIT</span>
-                    </div>
+                <a href="index.html#home" class="logo">
+                    <img src="images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
                 </a>
             </div>
             <ul class="nav-menu">
