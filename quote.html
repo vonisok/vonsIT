@@ -443,12 +443,16 @@
     <script src="/script.min.js"></script>
     <script src="/script-netlify.js"></script>
     <script>
-        // Override body opacity issue from script-netlify.js
+        // Ensure body is visible on quote page (fix for script-netlify.js opacity issue)
         document.addEventListener('DOMContentLoaded', function() {
-            document.body.style.opacity = '1';
+            if (document.body.classList.contains('radial')) {
+                document.body.style.opacity = '1';
+            }
         });
         window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
+            if (document.body.classList.contains('radial')) {
+                document.body.style.opacity = '1';
+            }
         });
     </script>
 </body>
