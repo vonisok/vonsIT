@@ -8,12 +8,12 @@
     <meta name="keywords" content="web development quote, website cost, custom website price, web design quote, vonsIT quote">
     
     <!-- Favicon and Icons -->
-    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-    <link rel="shortcut icon" href="/images/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="VonsIT" />
-    <link rel="manifest" href="/images/site.webmanifest" />
+    <link rel="manifest" href="images/site.webmanifest" />
     
     <!-- Resource Hints for Performance -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -44,8 +44,7 @@
     </script>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -109,39 +108,112 @@
       }
       .nav {
         position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
       }
-      .nav-brand {
-        display: flex;
-        align-items: center;
+      /* Tailwind utility class replacements */
+      .relative { position: relative; }
+      .grid { display: grid; }
+      .flex { display: flex; }
+      .flex-wrap { flex-wrap: wrap; }
+      .items-center { align-items: center; }
+      .justify-center { justify-content: center; }
+      .gap-2 { gap: 0.5rem; }
+      .gap-3 { gap: 0.75rem; }
+      .gap-4 { gap: 1rem; }
+      .gap-6 { gap: 1.5rem; }
+      .gap-12 { gap: 3rem; }
+      .max-w-7xl { max-width: 80rem; }
+      .max-w-2xl { max-width: 42rem; }
+      .max-w-xl { max-width: 36rem; }
+      .mx-auto { margin-left: auto; margin-right: auto; }
+      .mt-2 { margin-top: 0.5rem; }
+      .mt-3 { margin-top: 0.75rem; }
+      .mt-4 { margin-top: 1rem; }
+      .mt-6 { margin-top: 1.5rem; }
+      .mt-8 { margin-top: 2rem; }
+      .mb-8 { margin-bottom: 2rem; }
+      .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+      .px-4 { padding-left: 1rem; padding-right: 1rem; }
+      .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+      .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+      .py-14 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+      .py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+      .p-3 { padding: 0.75rem; }
+      .p-4 { padding: 1rem; }
+      .p-5 { padding: 1.25rem; }
+      .p-6 { padding: 1.5rem; }
+      .w-full { width: 100%; }
+      .w-28 { width: 7rem; }
+      .h-8 { height: 2rem; }
+      .text-xs { font-size: 0.75rem; line-height: 1rem; }
+      .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+      .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+      .text-4xl\/tight { font-size: 2.25rem; line-height: 1; }
+      .text-\[10px\] { font-size: 10px; }
+      .font-semibold { font-weight: 600; }
+      .font-bold { font-weight: 700; }
+      .font-extrabold { font-weight: 800; }
+      .text-center { text-align: center; }
+      .text-slate-100 { color: #f1f5f9; }
+      .text-slate-300 { color: #cbd5e1; }
+      .text-slate-400 { color: #94a3b8; }
+      .text-transparent { color: transparent; }
+      .rounded-md { border-radius: 0.375rem; }
+      .rounded-xl { border-radius: 0.75rem; }
+      .rounded-2xl { border-radius: 1rem; }
+      .rounded-3xl { border-radius: 1.5rem; }
+      .rounded-full { border-radius: 9999px; }
+      .border { border-width: 1px; }
+      .border-t { border-top-width: 1px; }
+      .border-white\/5 { border-color: rgba(255, 255, 255, 0.05); }
+      .border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
+      .bg-white\/5 { background-color: rgba(255, 255, 255, 0.05); }
+      .bg-clip-text { -webkit-background-clip: text; background-clip: text; }
+      .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+      .from-fuchsia-400 { --tw-gradient-from: #e879f9; --tw-gradient-to: rgba(232, 121, 249, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+      .to-violet-400 { --tw-gradient-to: #a78bfa; }
+      .from-fuchsia-500 { --tw-gradient-from: #d946ef; --tw-gradient-to: rgba(217, 70, 239, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+      .to-violet-600 { --tw-gradient-to: #7c3aed; }
+      .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+      .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); }
+      .shadow-black\/30 { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3); }
+      .shadow-fuchsia-900\/30 { box-shadow: 0 10px 15px -3px rgba(112, 26, 117, 0.3), 0 4px 6px -4px rgba(112, 26, 117, 0.3); }
+      .tracking-tight { letter-spacing: -0.025em; }
+      .tracking-wider { letter-spacing: 0.05em; }
+      .uppercase { text-transform: uppercase; }
+      .inline-flex { display: inline-flex; }
+      .place-items-center { place-items: center; }
+      .divide-y > :not([hidden]) ~ :not([hidden]) { border-top-width: 1px; }
+      .divide-white\/5 > :not([hidden]) ~ :not([hidden]) { border-top-color: rgba(255, 255, 255, 0.05); }
+      .block { display: block; }
+      .cursor-pointer { cursor: pointer; }
+      .opacity-80 { opacity: 0.8; }
+      .min-h-screen { min-height: 100vh; }
+      /* Focus ring */
+      .focus\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; }
+      .focus\:ring-2:focus { box-shadow: 0 0 0 3px rgba(232, 121, 249, 0.5); }
+      .focus\:ring-fuchsia-400:focus { box-shadow: 0 0 0 3px rgba(232, 121, 249, 0.5); }
+      /* Hover */
+      .hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.1); }
+      .hover\:opacity-95:hover { opacity: 0.95; }
+      /* Placeholder */
+      .placeholder\:text-slate-500::placeholder { color: #64748b; }
+      /* Responsive */
+      @media (min-width: 640px) {
+        .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .sm\:p-8 { padding: 2rem; }
       }
-      .nav-menu {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-        margin: 0;
-        padding: 0;
+      @media (min-width: 768px) {
+        .md\:col-span-1 { grid-column: span 1 / span 1; }
+        .md\:col-span-2 { grid-column: span 2 / span 2; }
+        .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .md\:text-5xl\/tight { font-size: 3rem; line-height: 1; }
       }
-      .nav-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-      }
-      /* Footer icon sizing */
-      .contact-icon {
-        width: 40px;
-        height: 40px;
-      }
-      .contact-icon svg {
-        width: 20px;
-        height: 20px;
+      @media (min-width: 1024px) {
+        .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .lg\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .lg\:py-24 { padding-top: 6rem; padding-bottom: 6rem; }
       }
       /* Add padding for fixed header */
       body {
@@ -150,12 +222,6 @@
       @media (max-width: 768px) {
         body {
           padding-top: 70px;
-        }
-        .nav-menu {
-          display: none;
-        }
-        .nav-toggle {
-          display: block;
         }
         /* Mobile menu styles for dark background */
         .nav-menu.active {
@@ -171,7 +237,6 @@
           padding: 1rem 2rem;
           gap: 1rem;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-          z-index: 1000;
         }
         .nav-menu.active li {
           width: 100%;
@@ -195,7 +260,7 @@
         <nav class="nav">
             <div class="nav-brand">
                 <a href="index.html#home" class="logo">
-                    <img src="/images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
+                    <img src="images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
                 </a>
             </div>
             <ul class="nav-menu">
@@ -242,7 +307,7 @@
 
             <!-- FORM CARD -->
             <div id="quote" class="glass rounded-3xl border border-white/10 shadow-xl shadow-black/30">
-                <form id="quoteForm" class="p-6 sm:p-8" name="quote-request" method="POST" action="/quote-confirmed.html" data-netlify="true" netlify-honeypot="bot-field" itemscope itemtype="https://schema.org/ContactForm">
+                <form id="quoteForm" class="p-6 sm:p-8" name="quote-request" method="POST" action="quote-confirmed.html" data-netlify="true" netlify-honeypot="bot-field" itemscope itemtype="https://schema.org/ContactForm">
                     <div id="form-messages" class="form-messages"></div>
                     
                     <!-- Hidden honeypot field for spam protection -->
@@ -373,7 +438,7 @@
                 <div class="footer-brand-section">
                     <div class="footer-logo">
                         <a href="index.html#home" class="logo footer-logo-style">
-                            <img src="/images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
+                            <img src="images/vonsitlogo.png" alt="vonsIT Logo" class="logo-image">
                         </a>
                         <div class="footer-tagline">Websites That Perform</div>
                     </div>
@@ -480,20 +545,7 @@
             ta.focus();
         }
     </script>
-    <script src="/script.min.js"></script>
-    <script src="/script-netlify.js"></script>
-    <script>
-        // Ensure body is visible on quote page (fix for script-netlify.js opacity issue)
-        document.addEventListener('DOMContentLoaded', function() {
-            if (document.body.classList.contains('radial')) {
-                document.body.style.opacity = '1';
-            }
-        });
-        window.addEventListener('load', function() {
-            if (document.body.classList.contains('radial')) {
-                document.body.style.opacity = '1';
-            }
-        });
-    </script>
+    <script src="script.min.js"></script>
+    <script src="script-netlify.js"></script>
 </body>
 </html>
